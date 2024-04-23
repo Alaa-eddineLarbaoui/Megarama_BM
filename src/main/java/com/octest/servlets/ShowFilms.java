@@ -27,8 +27,14 @@ public class ShowFilms extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+             FilmDAOImpl r=new FilmDAOImpl();
+        try {
+            request.setAttribute("films", r.ShowFilms());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         this.getServletContext().getRequestDispatcher("/Acceuil.jsp").forward(request, response);
     }
 
