@@ -9,4 +9,13 @@
         <servlet-name>ShowFilms</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name></servlet-name>
+        <servlet-class>com.octest.servlets.</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name></servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
 </web-app>
