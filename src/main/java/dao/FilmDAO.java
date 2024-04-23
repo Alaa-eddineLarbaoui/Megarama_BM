@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface FilmDAO {
     List<Films> ShowFilms() throws SQLException, ClassNotFoundException;
-    List<Films> SearchFilms(String Title);
+    List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException;
 }

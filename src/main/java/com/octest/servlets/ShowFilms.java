@@ -41,7 +41,7 @@ public class ShowFilms extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher("/Acceuil.jsp").forward(request, response);
+
     }
 
 }

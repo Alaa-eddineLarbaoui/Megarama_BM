@@ -26,6 +26,7 @@
             <input class="form-control mt-1" type="text" id="title" name="title">
 
         </div>
+        <button type="submit">Chercher</button>
 
 
 
@@ -43,6 +44,25 @@
                 <div class="card">
                    <div class="card-body">
                         <h5 class="card-title">${film.getTitre()}</h5>
+
+                        <a href="#" class="btn btn-primary">details</a>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <c:forEach var="films" items="${filmSe}">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${films.getTitre()}</h5>
 
                         <a href="#" class="btn btn-primary">details</a>
                     </div>

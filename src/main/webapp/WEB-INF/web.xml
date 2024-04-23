@@ -11,11 +11,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name></servlet-name>
-        <servlet-class>com.octest.servlets.</servlet-class>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>com.octest.servlets.Search</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name></servlet-name>
-        <url-pattern></url-pattern>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 </web-app>
