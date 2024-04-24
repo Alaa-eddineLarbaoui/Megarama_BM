@@ -9,64 +9,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style><%@ include file="style.css"%></style>
+    <title>Document</title>
 </head>
 <body>
-<style>
-    body{
-        background-color: rgb(14, 14, 37);
-    }
-    header{
-        display: flex;
-        flex-direction: row;
-        height: 100px;
-        width: 100%;
-    }
-    .cardd{
 
-        width: 234px;
-        text-align: center;
-
-    }
-    .cardd-image{
-        height: 300px;
-
-        border-radius:50px;
-
-    }
-    .textt-card{
-        color: white;
-        text-align: center;
-        font-size: medium;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    .details{
-        background-color: rgb(14, 14, 37);
-        color: rgb(123, 117, 117);
-        border:1px solid rgb(71, 62, 62);
-        border-radius: 9px;
-        padding: 6px 16px;
-        margin-top: -9px;
-    }
-    .resultcardd{
-        display: flex;
-       gap:15px;
-    }
-
-</style>
 
 
 <div class="rounded m-5 check-availabilty" id="next">
     <form id="formCheck" method="post" action="search" class="form-checking row" >
 
 
-        <div class="col-md-2 mb-2">
-            <label for="title">Title :</label>
-            <input class="form-control mt-1" type="text" id="title" name="title">
+        <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
+            <nav class="navContainer movieDetailnavContainer">
 
+                <input class="search" type="text" placeholder="Search " name="title">
+
+            </nav>
         </div>
         <button type="submit">Chercher</button>
 
