@@ -1,4 +1,4 @@
 package com.octest.beans;
 
-public class Films {
+public class User {
 }
