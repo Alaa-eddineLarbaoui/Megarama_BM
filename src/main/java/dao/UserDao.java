@@ -6,3 +6,5 @@ public interface UserDao {
        String verifieUser(String login, String passWord);
        boolean insertUser(User user);
 }
+
+
