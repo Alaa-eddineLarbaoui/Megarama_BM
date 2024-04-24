@@ -15,7 +15,49 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>hellooooooooooo</h1>
+<style>
+    body{
+        background-color: rgb(14, 14, 37);
+    }
+    header{
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        width: 100%;
+    }
+    .cardd{
+
+        width: 234px;
+        text-align: center;
+
+    }
+    .cardd-image{
+        height: 300px;
+
+        border-radius:50px;
+
+    }
+    .textt-card{
+        color: white;
+        text-align: center;
+        font-size: medium;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .details{
+        background-color: rgb(14, 14, 37);
+        color: rgb(123, 117, 117);
+        border:1px solid rgb(71, 62, 62);
+        border-radius: 9px;
+        padding: 6px 16px;
+        margin-top: -9px;
+    }
+    .resultcardd{
+        display: flex;
+       gap:15px;
+    }
+
+</style>
+
 
 <div class="rounded m-5 check-availabilty" id="next">
     <form id="formCheck" method="post" action="search" class="form-checking row" >
@@ -35,23 +77,21 @@
 
 
 
-<div class="container">
+<div class="resultcardd">
 
 
-    <div class="row">
+
         <c:forEach var="film" items="${films}">
-            <div class="col-md-4">
-                <div class="card">
-                   <div class="card-body">
-                        <h5 class="card-title">${film.getTitre()}</h5>
 
-                        <a href="#" class="btn btn-primary">details</a>
-                    </div>
-                </div>
+            <div class="cardd">
+                <img class="cardd-image" src="${film.getPicture()}">
+                <h1 class="textt-card">${film.getTitre()}</h1>
+                <a href="#" class="details btn btn-primary">Details</a>
+
             </div>
         </c:forEach>
     </div>
-</div>
+
 
 
 <div class="container">
@@ -59,8 +99,9 @@
 
     <div class="row">
         <c:forEach var="films" items="${filmSe}">
-            <div class="col-md-4">
+
                 <div class="card">
+                    <img src="${films.getPicture()}" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">${films.getTitre()}</h5>
 
