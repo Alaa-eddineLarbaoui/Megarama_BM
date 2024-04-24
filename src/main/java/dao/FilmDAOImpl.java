@@ -1,19 +1,18 @@
 package dao;
 
-import com.octest.beans.Films;
+import com.octest.beans.Film;
 import com.octest.config.ConnectionDAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class FilmDAOImpl implements FilmDAO{
     @Override
-    public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-        ArrayList<Films> films=new ArrayList<>();
+    public List<Film> ShowFilms() throws SQLException, ClassNotFoundException {
+        ArrayList<Film> films=new ArrayList<>();
         String sql="SELECT *FROM films";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
         ResultSet resultat = statement.executeQuery();
@@ -25,7 +24,7 @@ public class FilmDAOImpl implements FilmDAO{
             String genre = resultat.getString("genre");
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
-            Films flm=new Films(id_film,title,director,genre,duration,synopsis);
+            Film flm=new Film(id_film,title,director,genre,duration,synopsis);
             films.add(flm);
 
 
@@ -37,8 +36,8 @@ public class FilmDAOImpl implements FilmDAO{
     }
 
     @Override
-    public List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException {
-        ArrayList<Films> SearchFilmsRe=new ArrayList<>();
+    public List<Film> SearchFilms(String Title) throws SQLException, ClassNotFoundException {
+        ArrayList<Film> SearchFilmsRe=new ArrayList<>();
         String requet = "SELECT * FROM  films WHERE titre=?";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
         statement.setString(1,Title);
@@ -52,7 +51,7 @@ public class FilmDAOImpl implements FilmDAO{
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
 
-            Films searchfilms=new Films(id_film,title,director,genre,duration,synopsis);
+            Film searchfilms=new Film(id_film,title,director,genre,duration,synopsis);
             SearchFilmsRe.add(searchfilms);
 
         }

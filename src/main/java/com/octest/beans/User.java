@@ -1,19 +1,10 @@
 package com.octest.beans;
 
 public class User {
-       private int idUser;
        private String mail;
        private String passWord;
        private String type;
 
-
-       public int getIdUser() {
-              return idUser;
-       }
-
-       public void setIdUser(int idUser) {
-              this.idUser = idUser;
-       }
 
        public String getMail() {
               return mail;
