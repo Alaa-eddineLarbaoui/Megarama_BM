@@ -25,6 +25,7 @@ public class UserDaoImpl implements UserDao {
             ResultSet resultat =  preparedStatement.executeQuery();
             if(resultat.next())
             {
+                System.out.println(resultat.getString("type"));
                 String type =resultat.getString("type");
                 if(type=="admin")
                 {
