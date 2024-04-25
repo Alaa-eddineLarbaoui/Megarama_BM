@@ -14,56 +14,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <style><%@ include file="style.css"%></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
+<header>
 
-
-
-<div class="rounded m-5 check-availabilty" id="next">
-    <form id="formCheck" method="post" action="search" class="form-checking row" >
-
-
+    <div class="headr">
+        <div><h1 class="name">MEGARAMA .</h1></div>
         <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
-            <nav class="navContainer movieDetailnavContainer">
+            <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
 
-                <input class="search" type="text" placeholder="Search " name="title">
+                <form method="post" action="search" >
 
+                    <div style="display: flex; flex-direction: row; gap:10px;">
+                        <input class="search col-md-4" type="text" placeholder="Search">
+
+                        <button class="btn btn-primary col-md-3" type="submit">Chercher</button>
+
+                    </div>
+
+
+
+                </form>
             </nav>
         </div>
-        <button type="submit">Chercher</button>
-
-
-
-    </form>
-</div>
-
-
-
-<div class="resultcardd">
-
-
-
-        <c:forEach var="film" items="${films}">
-
-            <div class="cardd">
-                <img class="cardd-image" src="${film.getPicture()}">
-                <h1 class="textt-card">${film.getTitre()}</h1>
-                <a href="#" class="details btn btn-primary">Details</a>
-
-            </div>
-        </c:forEach>
     </div>
+</header>
+
+<div class="searchimg">
 
 
 
-<div class="container">
+</div>
+<div style="background: #03033d; height: 700px ; padding-top: 40px">
+    <div class="container">
+        <h1 class="title">Now Playing Movies</h1>
+
+        <div class="resultcardd">
 
 
-    <div class="row">
-        <c:forEach var="films" items="${filmSe}">
+
+            <c:forEach var="film" items="${films}">
+
+                <div class="item">
+                    <img class="card-image" src="${film.getPicture()}">
+                    <h1 class="text-card">${film.getTitre()}</h1>
+
+
+                </div>
+            </c:forEach>
+        </div >
+
+        <h1 class="title">Trending Movies</h1>
+
+        <div >
+
+
+            <div class="row">
+                <c:forEach var="films" items="${filmSe}">
 
                 <div class="card">
                     <img src="${films.getPicture()}" class="card-img-top">
@@ -74,10 +84,14 @@
                     </div>
                 </div>
             </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
     </div>
+    </div>
+
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

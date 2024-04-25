@@ -1,24 +1,75 @@
-
 body{
+    width: 100%;
+    height: 100vh;
     background-color: rgb(14, 14, 37);
+
 }
 
-.cardd{
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 70px;
+    top: 0;
+    z-index: 1000;
+    background: #03033d;
+    position: fixed;
+}
+.headr{
+    position: absolute;
+    top: 40px;
+    background: #03033d;
+}
+.searchimg{
+    width: 100%;
+    height: 700px;
+    z-index: -1000;
 
-    width: 234px;
+    background-image: url("https://i.ibb.co/6X9Mk66/pexels-hngstrm-3137890.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    filter: blur(3px);
+
+
+}
+.resultcardd{
+    display: flex;
+    gap:10px;
+    margin-left:30px ;
+    justify-content: center;
+
+
+}
+.name{
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    margin-left: 45px;
+
+}
+.headr{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+
+    width: 100%;
+    bottom: 490px;
+}
+.item{
     text-align: center;
-
 }
-.cardd-image{
+.card-image{
     height: 300px;
-
-
 
     border-radius:50px;
 
 }
-.textt-card{
-    color: white;
+.text-card{
+    color:white;
     text-align: center;
     font-size: medium;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -31,24 +82,26 @@ body{
     padding: 6px 16px;
     margin-top: -9px;
 }
-.resultcardd{
-    display: flex;
-    gap:15px;
+.details:hover{
+    background-color:white;
+    color: rgb(14, 14, 37);
+
+
 }
+
 .navContainer {
     Display: flex;
-
+    width: 40px;
     height: 5rem;
     align-items: center;
     padding: 0px 146px 0px 63px;
-    justify-content: space-between;
 
 
-    z-index: 2;
-    left: 81px;
-    margin: 0 0 0 0px;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out;
+
+}
+.nav_paremt_conatainer{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
@@ -62,15 +115,36 @@ body{
     border: none;
     border-radius: 9px;
 
-    background-color: #82819357;
+
+
+    background-color: #82819380;
     background-size: 20px;
     background-position-y: center;
     background-position: 98%;
     color: #ffff;
-    width: 34%;
+    width: 80%;
     letter-spacing: 1px;
     font-size: 14px;
     transition-duration: 0.2s;
     transition-timing-function: linear;
 
 }
+.title{
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+}
+/*.headtitle{
+ position: relative;
+}
+#ZZ{
+    position: absolute;
+   left: 189px;
+    width: 100%;
+    bottom: 1px;
+
+}
+*/
+
+
