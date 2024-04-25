@@ -20,8 +20,7 @@ public class FilmDAOImpl implements FilmDAO{
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
-             String title=resultat.getString("titre");
-           String director =resultat.getString("director");
+            String title=resultat.getString("titre");String director =resultat.getString("director");
             String genre = resultat.getString("genre");
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
@@ -58,5 +57,32 @@ public class FilmDAOImpl implements FilmDAO{
         }
 
         return SearchFilmsRe;
-    }}
+    }
+
+    @Override
+    public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
+        ArrayList<Films> addfilms=new ArrayList<>();
+         String sql = "INSERT INTO films (film_id, titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?,?)";
+         PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
+
+        s.setInt(1, filmToAdd.getFilm_id());
+        s.setString(2, filmToAdd.getTitre());
+        s.setString(3, filmToAdd.getDirector());
+        s.setString(4, filmToAdd.getGenre());
+        s.setInt(5, filmToAdd.getDuration());
+        s.setString(6, filmToAdd.getSynopsis());
+
+
+        int rowsInserted = s.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("Film added successfully.");
+            addfilms.add(filmToAdd);
+        } else {
+            System.out.println("Failed to add the film.");
+        }
+
+        return addfilms;
+    }
+
+}
 

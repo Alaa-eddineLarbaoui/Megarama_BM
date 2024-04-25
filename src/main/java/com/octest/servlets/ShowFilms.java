@@ -35,7 +35,7 @@ public class ShowFilms extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/Acceuil.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
 
 

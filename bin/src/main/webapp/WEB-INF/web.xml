@@ -25,6 +25,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddFilm</servlet-name>
-        <url-pattern>/Add</url-pattern>
+        <url-pattern>/AddFilm</url-pattern>
     </servlet-mapping>
 </web-app>
