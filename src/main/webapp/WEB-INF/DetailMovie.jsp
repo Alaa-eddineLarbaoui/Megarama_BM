@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
@@ -148,11 +149,20 @@
                 <input type="number" id="seats" name="seats" min="1" required><br><br>
 
                 <input type="submit" value="Réserver">
-                </form></div>
+                </div>
 
         </section>
-    </section>
+        <c:forEach var="detail" items="${details}">
 
+            <div class="cardd">
+
+                <h1 class="textt-card">${detail.getTitre()}</h1>
+                <a href="#" class="details btn btn-primary">Details</a>
+
+            </div>
+        </c:forEach>
+
+    </section>
 
 
 </main>
