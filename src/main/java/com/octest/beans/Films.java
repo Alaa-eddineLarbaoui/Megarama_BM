@@ -9,6 +9,13 @@ public class Films {
         this.duration = duration;
         this.synopsis = synopsis;
     }
+    public Films( String titre, String director, String genre, Integer duration, String synopsis) {
+        this.titre = titre;
+        this.director = director;
+        this.genre = genre;
+        this.duration = duration;
+        this.synopsis = synopsis;
+    }
 
     private   Integer film_id;
    private String titre;

@@ -21,14 +21,13 @@ public class AddFilm extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer filmId = Integer.parseInt(request.getParameter("film_id"));
         String titre = request.getParameter("titre");
         String director = request.getParameter("director");
         String genre = request.getParameter("genre");
         Integer duration = Integer.parseInt(request.getParameter("duration"));
         String synopsis = request.getParameter("synopsis");
 
-        Films newFilm = new Films(filmId, titre, director, genre, duration, synopsis);
+        Films newFilm = new Films(titre, director, genre, duration, synopsis);
         FilmDAO filmDAO = new FilmDAOImpl();
 
 

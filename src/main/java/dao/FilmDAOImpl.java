@@ -62,16 +62,14 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
         ArrayList<Films> addfilms=new ArrayList<>();
-         String sql = "INSERT INTO films (film_id, titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?,?)";
+         String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?)";
          PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
 
-        s.setInt(1, filmToAdd.getFilm_id());
-        s.setString(2, filmToAdd.getTitre());
-        s.setString(3, filmToAdd.getDirector());
-        s.setString(4, filmToAdd.getGenre());
-        s.setInt(5, filmToAdd.getDuration());
-        s.setString(6, filmToAdd.getSynopsis());
-
+        s.setString(1, filmToAdd.getTitre());
+        s.setString(2, filmToAdd.getDirector());
+        s.setString(3, filmToAdd.getGenre());
+        s.setInt(4, filmToAdd.getDuration());
+        s.setString(5, filmToAdd.getSynopsis());
 
         int rowsInserted = s.executeUpdate();
         if (rowsInserted > 0) {

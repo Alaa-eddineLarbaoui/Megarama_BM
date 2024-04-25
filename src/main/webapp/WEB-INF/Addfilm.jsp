@@ -58,7 +58,6 @@ input[type="submit"]:hover {
     <h1>Megarama Béni Mellal</h1>
     <h2>Add Film</h2>
     <form action="Add" method="post">
-        Film Id: <input type="text" name="film_id"><br>
         The Title of the Film: <input type="text" name="titre"><br>
         The Film Director: <input type="text" name="director"><br>
         The Genre of Movie: <input type="text" name="genre"><br>
