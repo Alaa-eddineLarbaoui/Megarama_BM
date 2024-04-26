@@ -1,68 +1,90 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Film</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Film - Cinema XYZ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-<style>
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input[type="text"],
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-</style>
 <body>
 <div class="container">
-    <h1>Megarama Béni Mellal</h1>
+    <h1>Megarama</h1>
     <h2>Add Film</h2>
-    <form action="Add" method="post">
-        The Title of the Film: <input type="text" name="titre"><br>
-        The Film Director: <input type="text" name="director"><br>
-        The Genre of Movie: <input type="text" name="genre"><br>
-        Film Duration: <input type="text" name="duration"><br>
-        Movie Synopsis: <input type="text" name="synopsis"><br>
+    <form action="add_film.php" method="post">
+        <label for="film_title">Film Title:</label>
+        <input type="text" id="film_title" name="film_title" required><br>
+        <label for="film_director">Director:</label>
+        <input type="text" id="film_director" name="film_director" required><br>
+        <label for="film_genre">Genre:</label>
+        <input type="text" id="film_genre" name="film_genre" required><br>
+        <label for="film_duration">Duration:</label>
+        <input type="text" id="film_duration" name="film_duration" required><br>
+        <label for="film_synopsis">Synopsis:</label>
+        <input type="text" id="film_synopsis" name="film_synopsis" required><br>
+        <label for="film_picture">Image URL:</label>
+        <input type="text" id="film_picture" name="film_picture" required><br>
+
         <input onclick="added()" type="submit" value="Add film">
         <script type="text/javascript">
             function added(){
@@ -73,3 +95,4 @@ input[type="submit"]:hover {
 </div>
 </body>
 </html>
+
