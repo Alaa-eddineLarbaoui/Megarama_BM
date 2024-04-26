@@ -35,11 +35,10 @@ public class AddFilm extends HttpServlet {
             filmDAO.addFilms(newFilm);
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {git
             throw new RuntimeException(e);
         }
 
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Confirm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
     }
 }

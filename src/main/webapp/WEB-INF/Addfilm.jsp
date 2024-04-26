@@ -63,7 +63,12 @@ input[type="submit"]:hover {
         The Genre of Movie: <input type="text" name="genre"><br>
         Film Duration: <input type="text" name="duration"><br>
         Movie Synopsis: <input type="text" name="synopsis"><br>
-        <input type="submit" value="Add film">
+        <input onclick="added()" type="submit" value="Add film">
+        <script type="text/javascript">
+            function added(){
+                alert("Film added successfully!")
+            }
+        </script>
     </form>
 </div>
 </body>
