@@ -147,11 +147,12 @@
             <c:forEach var="film" items="${films}">
 
                 <div class="item">
-                    <img class="card-image" src="${film.getPicture()}">
+                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+                        <img class="card-image" src="${film.getPicture()}">
+                    </a>
                     <h1 class="text-card">${film.getTitre()}</h1>
-
-
                 </div>
+
             </c:forEach>
 
 
@@ -186,7 +187,7 @@
                     <img src="${films.getPicture()}" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">${films.getTitre()}</h5>
-                        <button style="background: white">ddddddd</button>
+
                     </div>
                 </div>
                 </c:forEach>
