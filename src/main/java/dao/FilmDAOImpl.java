@@ -60,12 +60,14 @@ public class FilmDAOImpl implements FilmDAO{
     }
 
     @Override
-    public List<Films> ShowMovie() throws SQLException, ClassNotFoundException {
+    public List<Films> ShowMovie(Integer id) throws SQLException, ClassNotFoundException {
         ArrayList<Films> Detailsfilms=new ArrayList<>();
-        String requet = "SELECT * FROM  films ";
+        String requet = "SELECT * FROM  films WHERE film_id=?";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
-
+        statement.setInt(1,id);
         ResultSet resultat = statement.executeQuery();
+
+
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
