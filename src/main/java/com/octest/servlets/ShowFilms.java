@@ -37,6 +37,7 @@ public class ShowFilms extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
 
