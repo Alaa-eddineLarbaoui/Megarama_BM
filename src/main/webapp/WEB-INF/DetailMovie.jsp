@@ -10,10 +10,8 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@ include file="MovieDetails.css"%></style>
 </head>
-<style>
-
-</style>
 
 <body class="body">
 
@@ -99,18 +97,20 @@
                 <img class="movie_details_poster"
                      src="https://image.tmdb.org/t/p/w500//kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg" alt="title">
                 <div class="movie_details_about">
-                    <h2 class="movie_details_title">Godzilla x Kong: The New Empire</h2>
-                    <div class="date_rating">
-                        <h5>alaa-eddine</h5>
+
+                    <h2 class="movie_details_title">${detail.getTitre()}</h2>
+
+                    <div class="NameofDirector">
+                        <h5>${detail.getDirector()}</h5>
                     </div>
                     <div class="movie_details_about_category">
                         <ul class="movie_details_about_category_ul">
-                            <li class="movie_details_category_ul_li">Action</li>
+                            <li class="movie_details_category_ul_li">${detail.getGenre()}</li>
                         </ul>
                     </div>
 
                     <div class="date_rating">
-                        <p class="time">115 minutes</p>
+                        <p class="time">${detail.getDuration()}</p>
                     </div>
 
                 </div>
@@ -122,12 +122,10 @@
 
 
             <section class="section_story">
-                <p>Following their explosive showdown,
-                    Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world,
-                    challenging their very existence – and our own.</p>
+                <p>${detail.getSynopsis()}</p>
             </section>
 
-
+            </c:forEach>
 
             <section class="Trailer_section">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/_inKs4eeHiI?si=__2vaCg-4KUVfYlF"
