@@ -82,6 +82,7 @@
                 <div class="light_darkmode"></div>
             </nav>
         </div>
+        <c:forEach items="${detai}" var="detail">
 
         <section class="section_two section_two2">
             <div class="posterbig">

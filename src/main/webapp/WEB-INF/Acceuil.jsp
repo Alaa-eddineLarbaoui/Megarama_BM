@@ -183,13 +183,12 @@
             <div class="row">
                 <c:forEach var="films" items="${filmSe}">
 
-                <div class="card">
-                    <img src="${films.getPicture()}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">${films.getTitre()}</h5>
-
+                    <div class="item">
+                        <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+                            <img class="card-image" src="${film.getPicture()}">
+                        </a>
+                        <h1 class="text-card">${film.getTitre()}</h1>
                     </div>
-                </div>
                 </c:forEach>
             </div>
 
