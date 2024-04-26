@@ -144,17 +144,6 @@
 
 
 
-            <c:forEach var="film" items="">
-
-                <div class="item">
-                    <img class="card-image" src="${film.getPicture()}">
-                    <h1 class="text-card">${film.getTitre()}</h1>
-
-
-                </div>
-            </c:forEach>
-
-
             <c:forEach var="film" items="${films}">
 
                 <div class="item">
@@ -169,6 +158,21 @@
 
 
         </div >
+    <div class="resultcardd">
+        <h1 style="padding: 30px;" class="title">Now</h1>
+        I
+        <c:forEach var="Disney" items="${Disneys}">
+
+            <div class="item">
+                <img class="card-image" src="${Disney.getPicture()}">
+                <h1 class="text-card">${Disney.getTitre()}</h1>
+
+
+            </div>
+        </c:forEach>
+    </div>
+
+
 
 
 
@@ -185,11 +189,12 @@
                         <button style="background: white">ddddddd</button>
                     </div>
                 </div>
+                </c:forEach>
             </div>
-            </c:forEach>
+
         </div>
     </div>
-    </div>
+
 
 </div>
 
