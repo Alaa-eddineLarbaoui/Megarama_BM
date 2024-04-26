@@ -1,6 +1,22 @@
 package com.octest.beans;
 
 public class Films {
+    public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis,String picture) {
+        this.film_id = film_id;
+        this.titre = titre;
+        this.director = director;
+        this.genre = genre;
+        this.duration = duration;
+        this.synopsis = synopsis;
+        this.picture=picture;
+    }
+
+    public Films(Integer film_id, String titre ,String picture) {
+        this.film_id = film_id;
+        this.titre = titre;
+        this.picture=picture;
+    }
+
     public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis) {
         this.film_id = film_id;
         this.titre = titre;
@@ -23,6 +39,16 @@ public class Films {
     private String genre;
     private Integer duration;
     private String synopsis;
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    private String picture;
 
     public Integer getFilm_id() {
         return film_id;

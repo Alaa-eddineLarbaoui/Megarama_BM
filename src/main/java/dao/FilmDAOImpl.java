@@ -10,48 +10,45 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class FilmDAOImpl implements FilmDAO{
+public class FilmDAOImpl implements FilmDAO {
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-        ArrayList<Films> films=new ArrayList<>();
-        String sql="SELECT *FROM films";
+        ArrayList<Films> films = new ArrayList<>();
+        String sql = "SELECT *FROM films";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
         ResultSet resultat = statement.executeQuery();
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
-            String title=resultat.getString("titre");String director =resultat.getString("director");
-            String genre = resultat.getString("genre");
-            Integer duration=resultat.getInt("duration");
-            String synopsis=resultat.getString("synopsis");
-            Films flm=new Films(id_film,title,director,genre,duration,synopsis);
+            String title = resultat.getString("titre");
+            String picture = resultat.getString("picture");
+            Films flm = new Films(id_film, title, picture);
             films.add(flm);
 
 
-
-
-
-    }
+        }
         return films;
     }
 
     @Override
     public List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException {
-        ArrayList<Films> SearchFilmsRe=new ArrayList<>();
+        ArrayList<Films> SearchFilmsRe = new ArrayList<>();
         String requet = "SELECT * FROM  films WHERE titre=?";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
-        statement.setString(1,Title);
+        statement.setString(1, Title);
         ResultSet resultat = statement.executeQuery();
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
-            String title=resultat.getString("titre");
-            String director =resultat.getString("director");
+            String title = resultat.getString("titre");
+            String director = resultat.getString("director");
             String genre = resultat.getString("genre");
-            Integer duration=resultat.getInt("duration");
-            String synopsis=resultat.getString("synopsis");
+            Integer duration = resultat.getInt("duration");
+            String synopsis = resultat.getString("synopsis");
+            String picture = resultat.getString("picture");
 
-            Films searchfilms=new Films(id_film,title,director,genre,duration,synopsis);
+
+            Films searchfilms = new Films(id_film, title, director, genre, duration, synopsis, picture);
             SearchFilmsRe.add(searchfilms);
 
         }
@@ -61,9 +58,9 @@ public class FilmDAOImpl implements FilmDAO{
 
     @Override
     public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
-        ArrayList<Films> addfilms=new ArrayList<>();
-         String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?)";
-         PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
+        ArrayList<Films> addfilms = new ArrayList<>();
+        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?)";
+        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
 
         s.setString(1, filmToAdd.getTitre());
         s.setString(2, filmToAdd.getDirector());
@@ -82,5 +79,31 @@ public class FilmDAOImpl implements FilmDAO{
         return addfilms;
     }
 
+
+    @Override
+    public List<Films> ShowMovie() throws SQLException, ClassNotFoundException {
+        ArrayList<Films> Detailsfilms = new ArrayList<>();
+        String requet = "SELECT * FROM  films ";
+        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
+
+        ResultSet resultat = statement.executeQuery();
+
+        while (resultat.next()) {
+            Integer id_film = resultat.getInt("film_id");
+            String title = resultat.getString("titre");
+            String director = resultat.getString("director");
+            String genre = resultat.getString("genre");
+            Integer duration = resultat.getInt("duration");
+            String synopsis = resultat.getString("synopsis");
+
+
+            Films detailsfilms = new Films(id_film, title, director, genre, duration, synopsis);
+            Detailsfilms.add(detailsfilms);
+
+        }
+
+        return Detailsfilms;
+    }
 }
+
 
