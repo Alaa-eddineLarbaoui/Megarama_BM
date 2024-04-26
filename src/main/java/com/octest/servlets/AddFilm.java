@@ -26,8 +26,10 @@ public class AddFilm extends HttpServlet {
         String genre = request.getParameter("genre");
         Integer duration = Integer.parseInt(request.getParameter("duration"));
         String synopsis = request.getParameter("synopsis");
+        String picture = request.getParameter("picture");
 
-        Films newFilm = new Films(titre, director, genre, duration, synopsis);
+
+        Films newFilm = new Films(titre, director, genre, duration, synopsis, picture);
         FilmDAO filmDAO = new FilmDAOImpl();
 
 
@@ -35,7 +37,7 @@ public class AddFilm extends HttpServlet {
             filmDAO.addFilms(newFilm);
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {git
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 

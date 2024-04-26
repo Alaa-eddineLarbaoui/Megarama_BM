@@ -34,11 +34,21 @@ public class Films {
     }
 
     private   Integer film_id;
-   private String titre;
-   private String director;
+    private String titre;
+    private String director;
     private String genre;
     private Integer duration;
     private String synopsis;
+    private String picture;
+
+    public Films(String titre, String director, String genre, Integer duration, String synopsis, String picture) {
+        this.titre = titre;
+        this.director = director;
+        this.genre = genre;
+        this.duration = duration;
+        this.synopsis = synopsis;
+        this.picture=picture;
+    }
 
     public String getPicture() {
         return picture;
@@ -48,7 +58,7 @@ public class Films {
         this.picture = picture;
     }
 
-    private String picture;
+
 
     public Integer getFilm_id() {
         return film_id;
