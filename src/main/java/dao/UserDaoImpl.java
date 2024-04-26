@@ -19,14 +19,14 @@ public class UserDaoImpl implements UserDao {
         try {
             connexion = ConnectionDAO.getConnection();
 
-            preparedStatement = connexion.prepareStatement("select * from Users where mail = ? and passWord=?;");
+            preparedStatement = connexion.prepareStatement("select * from Users where email = ? and password_user=?;");
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, passWord);
             ResultSet resultat =  preparedStatement.executeQuery();
             if(resultat.next())
             {
-                System.out.println(resultat.getString("type"));
-                String type =resultat.getString("type");
+                System.out.println(resultat.getString("type_user"));
+                String type =resultat.getString("type_user");
                 if(type=="admin")
                 {
                     return 1;
@@ -74,5 +74,29 @@ public class UserDaoImpl implements UserDao {
             return 0;
         }
         return 2;
+    }
+
+    @Override
+    public User getUser(String email) {
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connexion = ConnectionDAO.getConnection();
+
+            preparedStatement = connexion.prepareStatement("select * from Users where email = ? ");
+            preparedStatement.setString(1, email);
+            ResultSet resultat =  preparedStatement.executeQuery();
+            if(resultat.next())
+            {
+                User user = new user();
+                user.setMail(resultat.getString("type_user"));
+                user.setPassWord(resultat.getString("password_user"));
+                user.setType(resultat.getString("type_user"));
+                return user;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+            return null;
     }
 }

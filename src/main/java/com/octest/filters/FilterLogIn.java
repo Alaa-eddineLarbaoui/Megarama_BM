@@ -1,16 +1,20 @@
 package com.octest.filters;
 
+import com.octest.beans.User;
 import dao.UserDao;
+import dao.UserDaoImpl;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebFilter(filterName = "FilterLogIn", urlPatterns = {"/*"})
+@WebFilter("/testLogIn")
 public class FilterLogIn implements Filter {
-    private UserDao UserDao;
+    private UserDao UserDao=new UserDaoImpl();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -18,25 +22,31 @@ public class FilterLogIn implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-//        String mail = request.getParameter("Email");
-//        String passWord = request.getParameter("password");
-//
-//        int resultLogIn = UserDao.verifieUser(mail,passWord);
-//
-//        if(resultLogIn==0)
-//        {
-//            request.setAttribute("error","User not found");
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("LogIn.jsp");
-//            dispatcher.forward(request, response);
-//        }
-//        else
-//        {
-//            filterChain.doFilter(request, response);
-//        }
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        filterChain.doFilter(request, response);
+        String mail = request.getParameter("Email");
+        String passWord = request.getParameter("password");
+        int resultLogIn = UserDao.verifieUser(mail,passWord);
 
+        User user = UserDao.getUser(mail);
+
+        HttpSession session = request.getSession();
+
+        session.setAttribute("user",user);
+
+
+        if(resultLogIn==0)
+        {
+            request.setAttribute("error","User not found");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
+            dispatcher.include(request, response);
+        }
+        else
+        {
+            filterChain.doFilter(request, response);
+        }
     }
 
     @Override
