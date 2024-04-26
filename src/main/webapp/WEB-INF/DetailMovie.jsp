@@ -10,8 +10,9 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@ include file="MovieDetails.css"%></style>
 </head>
-<style><%@ include file="MovieDetails.css"%></style>
+
 <body class="body">
 
 <main class="main">
@@ -91,7 +92,6 @@
                 <div class="gradient"></div>
                 <div class="line"></div>
             </div>
-            <c:forEach var="detail" items="${detai}">
             <section class="movie_details">
 
                 <img class="movie_details_poster"
@@ -150,7 +150,15 @@
                 </div>
 
         </section>
+        <c:forEach var="detail" items="${details}">
 
+            <div class="cardd">
+
+                <h1 class="textt-card">${detail.getTitre()}</h1>
+                <a href="#" class="details btn btn-primary">Details</a>
+
+            </div>
+        </c:forEach>
 
     </section>
 
