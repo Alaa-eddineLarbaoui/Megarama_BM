@@ -9,6 +9,8 @@ public class Films {
         this.duration = duration;
         this.synopsis = synopsis;
         this.picture=picture;
+        this.trailler_url=trailler_url;
+        this.background_Url=background_Url;
     }
 
     public Films(Integer film_id, String titre ,String picture) {
@@ -17,13 +19,16 @@ public class Films {
         this.picture=picture;
     }
 
-    public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis) {
+    public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis,  String trailler_url,String background_Url ,String picture) {
         this.film_id = film_id;
         this.titre = titre;
         this.director = director;
         this.genre = genre;
         this.duration = duration;
         this.synopsis = synopsis;
+        this.trailler_url=trailler_url;
+        this.background_Url=background_Url;
+        this.picture=picture;
     }
     public Films( String titre, String director, String genre, Integer duration, String synopsis) {
         this.titre = titre;
@@ -33,12 +38,17 @@ public class Films {
         this.synopsis = synopsis;
     }
 
+
     private   Integer film_id;
    private String titre;
    private String director;
     private String genre;
     private Integer duration;
     private String synopsis;
+    private String trailler_url;
+
+
+    private String background_Url;
 
     public String getPicture() {
         return picture;
@@ -97,6 +107,17 @@ public class Films {
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
     }
+
+    public String gettrailler_url() {
+        return trailler_url;
+    }
+
+    public void settrailler_url(String trailler_url) {
+        this.trailler_url = trailler_url;
+    }
+    public String getBackground_Url() {return background_Url;}
+
+    public void setBackground_Url(String background_Url) {this.background_Url = background_Url;}
 
 
 }

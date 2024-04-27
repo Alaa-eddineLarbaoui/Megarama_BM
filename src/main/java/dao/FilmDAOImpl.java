@@ -100,10 +100,15 @@ public class FilmDAOImpl implements FilmDAO{
             String genre = resultat.getString("genre");
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
+            String trailler_url=resultat.getString("trailler_url");
+            String background_Url=resultat.getString("background_Url");
+            String picture=resultat.getString("picture");
 
 
 
-            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis);
+
+
+            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis,trailler_url,background_Url,picture);
             Detailsfilms.add(detailsfilms);
 
         }
