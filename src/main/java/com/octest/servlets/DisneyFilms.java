@@ -12,14 +12,7 @@ import java.sql.SQLException;
 public class DisneyFilms extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        FilmDAOImpl disneyfilms = new FilmDAOImpl();
-        try {
-            request.setAttribute("Disneys",disneyfilms.MovieDisney());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
 

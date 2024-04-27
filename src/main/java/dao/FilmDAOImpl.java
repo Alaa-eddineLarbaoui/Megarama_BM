@@ -119,15 +119,15 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> MovieDisney() throws SQLException, ClassNotFoundException {
         ArrayList<Films> FilmsDisney=new ArrayList<>();
-        String requet = "SELECT film_id, titre , picture FROM  films WHERE genre=Disney";
+        String requet = "SELECT film_id, titre , picture FROM  films WHERE genre='Disney'";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
         ResultSet resultat = statement.executeQuery();
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
             String title = resultat.getString("titre");
             String picture = resultat.getString("picture");
-            Films flm = new Films(id_film, title, picture);
-            FilmsDisney.add(flm);
+            Films Disneyflm = new Films(id_film, title, picture);
+            FilmsDisney.add(Disneyflm);
         }
         return FilmsDisney;
     }
