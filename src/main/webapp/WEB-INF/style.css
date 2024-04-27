@@ -4,22 +4,52 @@ body{
 
 
 }
+::-webkit-scrollbar {
+    width: 3px;
+    height:3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
 header{
-    margin: 10px;
+    width: 80%;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
-    padding: 10px 70px;
-    background: rgba(7, 7, 73, 0.7);
+    padding: 15px 70px;
+    background: rgba(7, 7, 73, 0.19);
+    backdrop-filter: blur(10px);
     text-align: center;
     align-items: center;
     position: fixed;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 12px;
+}
+.logo{
+    width: 200px;
+    margin-left: 70px;
+}
+.search::placeholder{
+    color: rgba(255, 255, 255, 0.67);
+}
+.main-swiper{
+    position: relative;
 }
 
 
     .swiper-container {
         width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .swiper-slide {
@@ -38,14 +68,7 @@ header{
     }
 
 
-.resultcardd{
-    display: flex;
-    gap:10px;
 
-    justify-content: center;
-
-
-}
 .name{
     color:white;
     font-family:Arial, Helvetica, sans-serif;
@@ -158,5 +181,179 @@ header{
 
 }
 */
+.titre-cards{
+    width: 90%;
+    padding:5px 10px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.titre-cards > h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
+.main-cards{
+    width: 90%;
+    height: 400px;
+    padding: 15px 5px;
+    display: flex;
+    overflow: auto;
+    margin: 0 auto;
 
+}
+.card-wrapper{
+    display: flex;
+}
+.cardD{
+    margin-top: 20px;
+    width: 200px;
+}
+.cardD > div {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+.cardD > div > img{
+    border-radius: 18px;
+    height: 220px;
+    transition: .6s;
+    cursor: pointer;
+}
+.cardD > div > img:hover{
+    transform: scale(1.1);
+}
+.cardD > h1 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+    padding: 7px 1px;
+    padding-top: 12px;
+    padding-left: 25px;
+    cursor: pointer;
+    transition: .6s;
+    overflow: auto;
+    height: 30px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.cardD > h1:hover{
+    transform: scale(1.1);
+}
+.card-content{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 5px;
+    align-items: center;
+}
+.card-content > h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+}
+.card-content > h3{
+    font-size: 12px;
+    font-weight: 500;
+    color: #aeaeae;
+    border: 2px solid rgba(59, 59, 67, 0.85);
+    padding: 5px;
+}
+.Smain{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 300px;
+    width: 100%;
+    background: linear-gradient(360deg, #151728, rgba(92, 92, 99, 0));
+    z-index: 999;
+}
+.Smain2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, rgba(21, 23, 40, 0.72), rgba(92, 92, 99, 0));
+    z-index: 999;
+}
+.Smain3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(270deg, rgba(21, 23, 40, 0.72), rgba(92, 92, 99, 0));
+    z-index: 999;
+}
+.card-search{
+    position: absolute;
+    top: 100px;
+    left: 180px;
+    z-index: 1111;
+    margin: 0 auto;
+    width: 70%;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.search-img{
+    width: 40%;
+}
+.search-img > img {
+    width: 80%;
+    height:100%;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(30, 30, 30, 0.87);
+}
+.Scontent{
+    width: 60%;
+    height: 70%;
+    padding: 40px 10px;
+    border-left: 5px solid #151728;
+    background: rgba(69, 70, 87, 0.18);
+    backdrop-filter: blur(10px);
+}
+.search-content{
+    padding: 10px;
+}
+.search-content > h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+.search-content > h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: #454657;
+}
+.search-content2{
+    display: flex;
+    padding: 10px;
+    width: 40%;
+    justify-content: space-evenly;
+}
+.search-content2 > h1{
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+    border: 2px solid #454657;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.search-content2 > h2{
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+    border: 2px solid #454657;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
