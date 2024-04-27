@@ -18,23 +18,13 @@
         <servlet-name>Search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>MovieDetails</servlet-name>
-        <servlet-class>com.octest.servlets.MovieDetails</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MovieDetails</servlet-name>
-        <url-pattern>/detail</url-pattern>
-    </servlet-mapping>
+
     <servlet>
         <servlet-name>AddFilm</servlet-name>
         <servlet-class>com.octest.servlets.AddFilm</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddFilm</servlet-name>
-        <url-pattern>/Add</url-pattern>
+        <url-pattern>/AddFilm</url-pattern>
     </servlet-mapping>
 </web-app>
-
-
-

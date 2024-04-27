@@ -60,12 +60,38 @@ public class FilmDAOImpl implements FilmDAO{
     }
 
     @Override
-    public List<Films> ShowMovie() throws SQLException, ClassNotFoundException {
-        ArrayList<Films> Detailsfilms=new ArrayList<>();
-        String requet = "SELECT * FROM  films ";
-        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
+    public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
+        ArrayList<Films> addfilms = new ArrayList<>();
+        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?)";
+        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
 
+        s.setString(1, filmToAdd.getTitre());
+        s.setString(2, filmToAdd.getDirector());
+        s.setString(3, filmToAdd.getGenre());
+        s.setInt(4, filmToAdd.getDuration());
+        s.setString(5, filmToAdd.getSynopsis());
+
+        int rowsInserted = s.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("Film added successfully.");
+            addfilms.add(filmToAdd);
+        } else {
+            System.out.println("Failed to add the film.");
+        }
+
+        return addfilms;
+    }
+
+
+    @Override
+    public List<Films> ShowMovie(Integer id) throws SQLException, ClassNotFoundException {
+        ArrayList<Films> Detailsfilms=new ArrayList<>();
+        String requet = "SELECT * FROM  films WHERE film_id=?";
+        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
+        statement.setInt(1,id);
         ResultSet resultat = statement.executeQuery();
+
+
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
@@ -74,10 +100,15 @@ public class FilmDAOImpl implements FilmDAO{
             String genre = resultat.getString("genre");
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
+            String trailler_url=resultat.getString("trailler_url");
+            String background_Url=resultat.getString("background_Url");
+            String picture=resultat.getString("picture");
 
 
 
-            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis);
+
+
+            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis,trailler_url,background_Url,picture);
             Detailsfilms.add(detailsfilms);
 
         }

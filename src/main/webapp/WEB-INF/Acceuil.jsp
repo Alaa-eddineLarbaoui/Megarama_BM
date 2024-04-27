@@ -140,6 +140,7 @@
 
     <div class="Smain">
 
+
     </div>
     <div class="Smain2">
 
@@ -206,11 +207,13 @@
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
 
+
                 <div class="card-content">
                     <h2>2024</h2>
                     <h3>Movie</h3>
                     <h3>8K</h3>
                 </div>
+
             </div>
         </c:forEach>
     </div>
