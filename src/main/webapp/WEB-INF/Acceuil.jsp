@@ -177,7 +177,9 @@
     <c:forEach var="film" items="${films}">
         <div class="cardD">
             <div>
-                <img src="${film.getPicture()}"/>
+                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+                    <img class="card-image" src="${film.getPicture()}">
+                </a>
             </div>
             <h1>${film.getTitre()}...</h1>
 
