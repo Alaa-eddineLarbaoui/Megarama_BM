@@ -32,7 +32,7 @@
             font-size: 14px;
             margin: 0;
             padding: 0;
-            background: #03033d;
+            background: #151728;
         }
 
         swiper-container {
@@ -57,36 +57,38 @@
 
         }
         header{
-            width: 98%;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            height: 50px;
+            height: 55px;
             top: 0;
+            left: 100px;
             z-index: 1000;
             position: fixed;
+            width: 80%;
+            align-items: center;
         }
         .headr{
             position: absolute;
             top: 25px;
-            background: #03033d;
         }
     </style>
 </head>
 <body>
+
 <header>
 
     <div class="headr">
-        <div><h1 style="padding-top: 10px" class="name">MEGARAMA .</h1></div>
+        <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="100%" /></div>
         <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
             <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
 
                 <form method="post" action="search" >
 
-                    <div style="display: flex; flex-direction: row; gap:10px;">
-                        <input class="search col-md-4" type="text" placeholder="Search">
+                    <div style="display: flex; flex-direction: row; gap:10px; padding-top: 5px;">
+                        <input class="search col-md-4" type="text" placeholder="Search" name="title">
 
-                        <button class="btn btn-primary col-md-3" type="submit">Chercher</button>
+                        <button class="btn btn-outline-light col-md-3" type="submit">Chercher</button>
 
                     </div>
 
@@ -100,107 +102,126 @@
 
 
 
-<swiper-container
-        class="mySwiper"
-        direction="vertical"
-        pagination="true"
-        pagination-clickable="true"
->
-    <swiper-slide
-    ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images7.alphacoders.com/134/thumb-1920-1343598.png"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images.wallpapersden.com/image/download/descendants-the-rise-of-red-rita-ora_bmdram6UmZqaraWkpJRobWllrWdma2U.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images.wallpapersden.com/image/download/disney-the-marvels-5k_bmZraWeUmZqaraWkpJRqZmdlrWdtbWU.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-    /></swiper-slide>
-    <swiper-slide
-    ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-    /></swiper-slide>
+<section class="main-swiper">
+    <swiper-container
+            class="mySwiper"
+            direction="vertical"
+            pagination="true"
+            pagination-clickable="true"
+    >
+        <swiper-slide
+        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images7.alphacoders.com/134/thumb-1920-1343598.png"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images.wallpapersden.com/image/download/descendants-the-rise-of-red-rita-ora_bmdram6UmZqaraWkpJRobWllrWdma2U.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images.wallpapersden.com/image/download/disney-the-marvels-5k_bmZraWeUmZqaraWkpJRqZmdlrWdtbWU.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
+        /></swiper-slide>
+        <swiper-slide
+        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
+        /></swiper-slide>
+    </swiper-container>
 
-</swiper-container>
-
-
-<div style=" height: 400px; width: 100% ; background: linear-gradient(0deg, #03033d 0%, rgba(7,7,73,0.9) 80%, rgba(7,7,73,0) 100%);">
-        <h1 style="padding: 30px;" class="title">Now Playing Movies</h1>
-
-        <div class="resultcardd">
+    <div class="Smain">
 
 
+    </div>
+    <div class="Smain2">
 
-            <c:forEach var="film" items="${films}">
+    </div>
+    <div class="Smain3">
 
-                <div class="item">
-                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
-                        <img class="card-image" src="${film.getPicture()}">
-                    </a>
-                    <h1 class="text-card">${film.getTitre()}</h1>
+    </div>
+<c:forEach var="filmS" items="${filmSe}">
+    <div class="card-search">
+            <div class="search-img">
+                    <img src="${filmS.getPicture()}" width="90%" />
+            </div>
+            <div class="Scontent">
+                <div class="search-content">
+                    <h1>Search results for</h1>
+                    <h2>${filmS.getTitre()}</h2>
                 </div>
+                <div class="search-content2">
+                    <h1>8k</h1>
+                    <h2>2024</h2>
+                </div>
+            </div>
+    </div>
+</c:forEach>
+</section>
 
-            </c:forEach>
+<div class="titre-cards">
+    <h1>Now Playing Movies</h1>
+</div>
+
+<section class="main-cards">
+
+    <div class="card-wrapper">
+    <c:forEach var="film" items="${films}">
+        <div class="cardD">
+            <div>
+                <img src="${film.getPicture()}"/>
+            </div>
+            <h1>${film.getTitre()}...</h1>
+
+            <div class="card-content">
+                <h2>2024</h2>
+                <h3>Movie</h3>
+                <h3>8K</h3>
+            </div>
+        </div>
+    </c:forEach>
+    </div>
 
 
+</section>
+
+<div class="titre-cards">
+    <h1>Disney Movies</h1>
+</div>
+
+<section class="main-cards">
+
+    <div class="card-wrapper">
+        <c:forEach var="Disneys" items="${Disneys}">
+            <div class="cardD">
+                <div>
+                    <img src="${Disneys.getPicture()}"/>
+                </div>
+                <h1>${Disneys.getTitre()}...</h1>
 
 
-        </div >
-    <div class="resultcardd">
-        <h1 style="padding: 30px;" class="title">Now</h1>
-        I
-        <c:forEach var="Disney" items="${Disneys}">
-
-            <div class="item">
-                <img class="card-image" src="${Disney.getPicture()}">
-                <h1 class="text-card">${Disney.getTitre()}</h1>
-
+                <div class="card-content">
+                    <h2>2024</h2>
+                    <h3>Movie</h3>
+                    <h3>8K</h3>
+                </div>
 
             </div>
         </c:forEach>
     </div>
+</section>
 
 
-
-
-
-        <div >
-
-
-            <div class="row">
-                <c:forEach var="films" items="${filmSe}">
-
-                <div class="card">
-                    <img src="${films.getPicture()}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">${films.getTitre()}</h5>
-
-                    </div>
-                </div>
-                </c:forEach>
-            </div>
-
-        </div>
-    </div>
-
-
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

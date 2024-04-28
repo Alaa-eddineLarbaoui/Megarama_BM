@@ -42,6 +42,14 @@
         <servlet-name>CancelFilm</servlet-name>
         <url-pattern>/cancel</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ReserverMovie</servlet-name>
+        <servlet-class>com.octest.servlets.ReserverMovie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReserverMovie</servlet-name>
+        <url-pattern>/re</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 
