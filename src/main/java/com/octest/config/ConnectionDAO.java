@@ -14,9 +14,3 @@ public class ConnectionDAO {
         return DriverManager.getConnection(url, username, password);
     }
 }
-
-
-
-
-
-

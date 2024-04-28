@@ -28,7 +28,15 @@ public class Search extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/Acceuil.jsp").forward(request, response);
+        FilmDAOImpl r=new FilmDAOImpl();
+        try {
+            request.setAttribute("films", r.ShowFilms());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
 
     }
 }

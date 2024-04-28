@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>hellooooooooooo</h1>
+
 
 <div class="rounded m-5 check-availabilty" id="next">
     <form id="formCheck" method="post" action="search" class="form-checking row" >

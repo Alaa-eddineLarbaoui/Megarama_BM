@@ -37,4 +37,36 @@
         <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MovieDetails</servlet-name>
+        <servlet-class>com.octest.servlets.MovieDetails</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieDetails</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddFilm</servlet-name>
+        <servlet-class>com.octest.servlets.AddFilm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFilm</servlet-name>
+        <url-pattern>/Add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CancelFilm</servlet-name>
+        <servlet-class>com.octest.servlets.CancelFilm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CancelFilm</servlet-name>
+        <url-pattern>/cancel</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReserverMovie</servlet-name>
+        <servlet-class>com.octest.servlets.ReserverMovie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReserverMovie</servlet-name>
+        <url-pattern>/re</url-pattern>
+    </servlet-mapping>
 </web-app>
