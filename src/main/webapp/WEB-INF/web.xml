@@ -18,6 +18,25 @@
         <servlet-name>Search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>com.octest.servlets.LogIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/LogIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SignUp</servlet-name>
+        <servlet-class>com.octest.servlets.SignUp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/SignUp</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>MovieDetails</servlet-name>
         <servlet-class>com.octest.servlets.MovieDetails</servlet-class>

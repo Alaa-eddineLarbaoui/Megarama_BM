@@ -23,7 +23,7 @@ public class CancelFilm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/CancelFilm.jsp").forward(request, response);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class CancelFilm extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/CancelFilm.jsp").forward(request, response);
     }
 }

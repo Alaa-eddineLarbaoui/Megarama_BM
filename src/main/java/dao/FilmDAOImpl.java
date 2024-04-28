@@ -13,18 +13,17 @@ import java.util.List;
 public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-        ArrayList<Films> films=new ArrayList<>();
-        String sql="SELECT film_id, titre , picture FROM films";
-        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
-        ResultSet resultat = statement.executeQuery();
+            ArrayList<Films> films=new ArrayList<>();
+            String sql="SELECT film_id, titre , picture FROM films";
+            PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
+            ResultSet resultat = statement.executeQuery();
 
-        while (resultat.next()) {
-            Integer id_film = resultat.getInt("film_id");
-             String title=resultat.getString("titre");
-            String picture=resultat.getString("picture");
-            Films flm=new Films(id_film,title,picture);
-            films.add(flm);
-
+            while (resultat.next()) {
+                Integer id_film = resultat.getInt("film_id");
+                String title=resultat.getString("titre");
+                String picture=resultat.getString("picture");
+                Films flm=new Films(id_film,title,picture);
+                films.add(flm);
 
 
 

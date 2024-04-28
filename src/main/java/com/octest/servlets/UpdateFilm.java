@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class UpdateFilm extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/UpdateFilm.jsp").forward(request, response);
 
     }
 
@@ -43,7 +43,7 @@ public class UpdateFilm extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/UpdateFilm.jsp").forward(request, response);
 
     }
 }
