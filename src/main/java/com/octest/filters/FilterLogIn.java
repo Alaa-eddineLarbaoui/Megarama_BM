@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebFilter("/testLogIn")
 public class FilterLogIn implements Filter {
@@ -28,24 +29,31 @@ public class FilterLogIn implements Filter {
 
         String mail = request.getParameter("Email");
         String passWord = request.getParameter("password");
-        int resultLogIn = UserDao.verifieUser(mail,passWord);
 
-        User user = UserDao.getUser(mail);
+
+        User user = null;
+        try {
+            user = UserDao.getUser(mail);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         HttpSession session = request.getSession();
 
         session.setAttribute("user",user);
 
 
-        if(resultLogIn==0)
+        if(user!=null&&user.getPassWord().equals(passWord))
+        {
+            filterChain.doFilter(request, response);
+        }
+        else
         {
             request.setAttribute("error","User not found");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
             dispatcher.include(request, response);
-        }
-        else
-        {
-            filterChain.doFilter(request, response);
         }
     }
 

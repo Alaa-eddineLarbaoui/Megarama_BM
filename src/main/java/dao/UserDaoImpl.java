@@ -45,39 +45,26 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int insertUser(User user) {
+    public void insertUser(User user) {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connexion = ConnectionDAO.getConnection();
 
-            preparedStatement = connexion.prepareStatement("select * from Users where mail = ?;");
-            preparedStatement.setString(1, user.getMail());
-            ResultSet resultat =  preparedStatement.executeQuery();
-            if(resultat.next())
-            {
-                return 1;
-            }
-            else{
-                preparedStatement = connexion.prepareStatement("insert into Users values noms(mail,passWord,type) VALUES(?, ?, ?,);");
-                preparedStatement.setString(1, user.getMail());
-                preparedStatement.setString(2, user.getPassWord());
-                preparedStatement.setString(3, user.getType());
-                int rowsAffected = preparedStatement.executeUpdate();
-                if(rowsAffected == 0) {
-                    return 0;
-                }
-            }
+                preparedStatement = connexion.prepareStatement("insert into Users (id_user,email,password_user,type_user) VALUES (?, ?, ?,?);");
+                preparedStatement.setInt(1,user.getIdUser());
+                preparedStatement.setString(2, user.getMail());
+                preparedStatement.setString(3, user.getPassWord());
+                preparedStatement.setString(4, user.getType());
+                preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            return 0;
         }
-        return 2;
     }
 
     @Override
-    public User getUser(String email) {
+    public User getUser(String email) throws SQLException, ClassNotFoundException {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
 
@@ -89,14 +76,37 @@ public class UserDaoImpl implements UserDao {
             ResultSet resultat =  preparedStatement.executeQuery();
             if(resultat.next())
             {
-                User user = new user();
+                User user = new User();
+                user.setIdUser(resultat.getInt("id_user"));
                 user.setMail(resultat.getString("type_user"));
                 user.setPassWord(resultat.getString("password_user"));
                 user.setType(resultat.getString("type_user"));
                 return user;
+            }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
             return null;
+    }
+
+    @Override
+    public int getEndId() {
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connexion = ConnectionDAO.getConnection();
+
+            preparedStatement = connexion.prepareStatement("SELECT id_user FROM `users` ORDER BY `id_user` DESC LIMIT 1");
+            ResultSet resultat =  preparedStatement.executeQuery();
+            if(resultat.next())
+            {
+                return resultat.getInt("id_user");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }

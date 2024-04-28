@@ -11,14 +11,14 @@
 <body>
 <div class="signup-container">
     <h2>Sign Up</h2>
-    <form action="#">
+    <form method="post" action="testSignUp">
         <div class="input-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required >
         </div>
         <div class="input-group">
-            <label for="email">Confirm Your Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="confirmEmail">Confirm Your Email</label>
+            <input type="email" id="confirmEmail" name="confirmEmail" required>
         </div>
         <div class="input-group">
             <label for="password">Password</label>
@@ -26,6 +26,8 @@
         </div>
         <button type="submit">Sign Up</button>
     </form>
+    <p style="color: red">${error}</p>
+    <p style="color: green">${succes}</p>
     <p>Already have an account? <a href="LogIn">Login</a></p>
 </div>
 </body>
