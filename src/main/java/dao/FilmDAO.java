@@ -11,6 +11,7 @@ public interface FilmDAO {
     List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException;
     List<Films> ShowMovie(Integer id) throws SQLException, ClassNotFoundException;
     void cancelFilm(int filmId) throws SQLException, ClassNotFoundException;
+    void updateFilm(Films updatedFilm) throws SQLException, ClassNotFoundException;
 
 
 

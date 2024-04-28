@@ -176,6 +176,10 @@
             <input type="text" id="film_duration" name="duration" required><br>
             <label for="film_synopsis">Synopsis :</label>
             <input type="text" id="film_synopsis" name="synopsis" required><br>
+            <label for="background_Url">Background URL:</label><br>
+            <input type="text" id="background" name="background_Url"  required><br>
+            <label for="trailler_url">Trailer URL:</label><br>
+            <input type="text" id="trailler" name="trailler_url"  required><br>
             <label for="film_picture">URL de l'image :</label>
             <input type="text" id="film_picture" name="picture" required><br>
             <input onclick="filmAdded()" type="submit" value="Ajouter le film">
@@ -200,6 +204,41 @@
                 </script>
             </form>
         </section>
+
+    <section class="form-section">
+        <h1>Update Film</h1>
+        <form action="update" method="post">
+            <label for="filmId">Enter film id:</label><br>
+            <input type="text" name="filmId" value="${param.filmId}">
+
+            <label for="titre">Title:</label><br>
+            <input type="text" id="titre" name="titre" value="${param.titre}" required><br>
+
+            <label for="director">Director:</label><br>
+            <input type="text" id="director" name="director" value="${param.director}" required><br>
+
+            <label for="genre">Genre:</label><br>
+            <input type="text" id="genre" name="genre" value="${param.genre}" required><br>
+
+            <label for="duration">Duration (minutes):</label><br>
+            <input type="text" id="duration" name="duration" value="${param.duration}" required><br>
+
+            <label for="synopsis">Synopsis:</label><br>
+            <input type="text" id="synopsis" name="synopsis" value="${param.synopsis}" required><br>
+
+            <label for="background_Url">Background URL:</label><br>
+            <input type="text" id="background_Url" name="background_Url" value="${param.background_Url}" required><br>
+
+            <label for="trailler_url">Trailer URL:</label><br>
+            <input type="text" id="trailler_url" name="trailler_url" value="${param.trailler_url}" required><br>
+
+            <label for="picture">Picture URL:</label><br>
+            <input type="text" id="picture" name="picture" value="${param.picture}" required><br>
+
+            <input type="submit" value="Update">
+        </form>
+    </section>
+
 
     <section class="dashboard">
         <h2>Tableau de bord</h2>
