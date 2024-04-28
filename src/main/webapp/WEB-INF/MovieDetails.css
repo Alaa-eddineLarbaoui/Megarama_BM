@@ -553,11 +553,14 @@ body.light .menu ul li.hovered a ::after {
 
 
 
-/* /////////////////////////////*/
 .Sec_input_reservation {
-    background-color: #f0f0f0;
+    background-color: #2d3037;
+    border: none;
+    border-radius: 5px;
     padding: 20px;
-
+    margin-top: -20px;
+    width: 30%;
+    color: white;
 }
 
 .div_reservation {
@@ -575,10 +578,12 @@ body.light .menu ul li.hovered a ::after {
 .div_reservation h1 {
     font-size: 24px;
     text-align: center;
+    padding-bottom: 5px;
 }
 
 .div_reservation label {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .div_reservation input[type="number"] {
@@ -604,6 +609,7 @@ body.light .menu ul li.hovered a ::after {
 .div_reservation input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
 /*
 .Sec_input_reservation{
     display: flex;
