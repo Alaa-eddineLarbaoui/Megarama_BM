@@ -16,13 +16,14 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 
 
+
     @Override
     public List<Films> ReserveMovie( Integer Film_id, Integer NumberTickets) throws SQLException, ClassNotFoundException {
         ArrayList<Films> Reserve =new ArrayList<>();
-      //  String sqlq = "INSERT INTO Reservations ( reservation_id, user_id, film_id, reservationDate, numbreOfTickets) VALUES (?,?,?,Now(),?)";
-        String sqlq = "INSERT INTO Reservations (  film_id, numbreOfTickets) VALUES (?,?)";
+        //  String sqlq = "INSERT INTO Reservations ( reservation_id, user_id, film_id, reservationDate, numbreOfTickets) VALUES (?,?,?,Now(),?)";
+        String sqlq = "INSERT INTO Reservations (  film_id, numbreOfTickets,ResrvationDate) VALUES (?,?,Now())";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sqlq);
-       // statement.setInt(1, reservation_id);
+        // statement.setInt(1, reservation_id);
 //        statement.setInt(2, user_id);
         statement.setInt(1, Film_id);
 //        statement.setDate(3, new java.sql.Date(ResrvationDate.getTime()));
