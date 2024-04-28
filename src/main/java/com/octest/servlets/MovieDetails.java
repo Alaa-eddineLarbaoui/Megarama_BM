@@ -14,11 +14,15 @@ public class MovieDetails extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id=Integer.valueOf(request.getParameter("Id"));
         FilmDAOImpl det=new FilmDAOImpl();
+
         try {
             request.setAttribute("detai", det.ShowMovie(id));
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/DetailMovie.jsp").forward(request, response);
     }
 

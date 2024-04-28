@@ -34,6 +34,14 @@
         <servlet-name>AddFilm</servlet-name>
         <url-pattern>/Add</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CancelFilm</servlet-name>
+        <servlet-class>com.octest.servlets.CancelFilm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CancelFilm</servlet-name>
+        <url-pattern>/cancel</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

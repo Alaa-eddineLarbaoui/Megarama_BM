@@ -25,12 +25,13 @@ public class Films {
         this.duration = duration;
         this.synopsis = synopsis;
     }
-    public Films( String titre, String director, String genre, Integer duration, String synopsis) {
+    public Films( String titre, String director, String genre, Integer duration, String synopsis ,String picture) {
         this.titre = titre;
         this.director = director;
         this.genre = genre;
         this.duration = duration;
         this.synopsis = synopsis;
+        this.picture=picture;
     }
 
     private   Integer film_id;
@@ -39,6 +40,10 @@ public class Films {
     private String genre;
     private Integer duration;
     private String synopsis;
+    private String picture;
+
+
+
 
     public String getPicture() {
         return picture;
@@ -48,7 +53,7 @@ public class Films {
         this.picture = picture;
     }
 
-    private String picture;
+
 
     public Integer getFilm_id() {
         return film_id;

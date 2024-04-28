@@ -10,6 +10,7 @@ public interface FilmDAO {
     List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException;
     List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException;
     List<Films> ShowMovie(Integer id) throws SQLException, ClassNotFoundException;
+    void cancelFilm(int filmId) throws SQLException, ClassNotFoundException;
 
 
 

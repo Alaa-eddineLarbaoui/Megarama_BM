@@ -10,35 +10,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class FilmDAOImpl implements FilmDAO{
+public class FilmDAOImpl implements FilmDAO {
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-        ArrayList<Films> films=new ArrayList<>();
-        String sql="SELECT film_id, titre , picture FROM films";
+        ArrayList<Films> films = new ArrayList<>();
+        String sql = "SELECT film_id, titre , picture FROM films";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
         ResultSet resultat = statement.executeQuery();
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
-             String title=resultat.getString("titre");
-            String picture=resultat.getString("picture");
-            Films flm=new Films(id_film,title,picture);
+            String title = resultat.getString("titre");
+            String picture = resultat.getString("picture");
+            Films flm = new Films(id_film, title, picture);
             films.add(flm);
 
 
-
-
-
-    }
+        }
         return films;
     }
 
     @Override
     public List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException {
-        ArrayList<Films> SearchFilmsRe=new ArrayList<>();
+        ArrayList<Films> SearchFilmsRe = new ArrayList<>();
         String requet = "SELECT * FROM  films WHERE titre=?";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
-        statement.setString(1,Title);
+        statement.setString(1, Title);
         ResultSet resultat = statement.executeQuery();
 
         while (resultat.next()) {
@@ -51,7 +48,7 @@ public class FilmDAOImpl implements FilmDAO{
             String picture=resultat.getString("picture");
 
 
-            Films searchfilms=new Films(id_film,title,director,genre,duration,synopsis,picture);
+            Films searchfilms = new Films(id_film, title, director, genre, duration, synopsis, picture);
             SearchFilmsRe.add(searchfilms);
 
         }
@@ -62,7 +59,7 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
         ArrayList<Films> addfilms = new ArrayList<>();
-        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis,picture) VALUES (?,?,?,?,?,?)";
         PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
 
         s.setString(1, filmToAdd.getTitre());
@@ -70,6 +67,7 @@ public class FilmDAOImpl implements FilmDAO{
         s.setString(3, filmToAdd.getGenre());
         s.setInt(4, filmToAdd.getDuration());
         s.setString(5, filmToAdd.getSynopsis());
+        s.setString(6, filmToAdd.getPicture());
 
         int rowsInserted = s.executeUpdate();
         if (rowsInserted > 0) {
@@ -100,16 +98,28 @@ public class FilmDAOImpl implements FilmDAO{
             String genre = resultat.getString("genre");
             Integer duration=resultat.getInt("duration");
             String synopsis=resultat.getString("synopsis");
+            String picture=resultat.getString("picture");
 
 
 
-            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis);
+            Films detailsfilms=new Films(id_film,title,director,genre,duration,synopsis,picture);
             Detailsfilms.add(detailsfilms);
 
         }
 
         return Detailsfilms;
     }
+
+    @Override
+    public void cancelFilm(int filmId) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE FROM films WHERE film_id = ?";
+        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
+            statement.setInt(1, filmId);
+            statement.executeUpdate();
+
+    }
+
+
 
     @Override
     public List<Films> MovieDisney() throws SQLException, ClassNotFoundException {
