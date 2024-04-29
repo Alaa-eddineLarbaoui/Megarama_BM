@@ -148,10 +148,20 @@
     <div class="Smain3">
 
     </div>
-<c:forEach var="filmS" items="${filmSe}">
-    <div class="card-search">
+
+
+    <c:if test="${filmSe.size() == 0 }">
+        <div class="card-search">
+            <div class="Scontent">
+                <h1>No results found.</h1>
+            </div>
+        </div>
+    </c:if>
+
+    <c:forEach var="filmS" items="${filmSe}">
+        <div class="card-search">
             <div class="search-img">
-                    <img src="${filmS.getPicture()}" width="90%" />
+                <img src="${filmS.getPicture()}" width="90%" />
             </div>
             <div class="Scontent">
                 <div class="search-content">
@@ -163,8 +173,9 @@
                     <h2>2024</h2>
                 </div>
             </div>
-    </div>
-</c:forEach>
+        </div>
+    </c:forEach>
+
 </section>
 
 <div class="titre-cards">
@@ -204,10 +215,13 @@
     <div class="card-wrapper">
         <c:forEach var="Disneys" items="${Disneys}">
             <div class="cardD">
-                <div>
-                    <img src="${Disneys.getPicture()}"/>
+                <div >
+                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                        <img CLASS="card_disney" src="${Disneys.getPicture()}"/>
+                    </a>
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
+
 
 
                 <div class="card-content">
