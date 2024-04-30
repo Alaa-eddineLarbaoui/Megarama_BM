@@ -17,9 +17,7 @@ public class CancelFilm extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private FilmDAO filmDAO;
 
-    public void init() {
-        filmDAO = new FilmDAOImpl();
-    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +26,8 @@ public class CancelFilm extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int filmId = Integer.parseInt(request.getParameter("filmId"));
+        filmDAO = new FilmDAOImpl();
+        int filmId = Integer.valueOf(request.getParameter("filmId"));
         try {
             filmDAO.cancelFilm(filmId);
         } catch (SQLException e) {

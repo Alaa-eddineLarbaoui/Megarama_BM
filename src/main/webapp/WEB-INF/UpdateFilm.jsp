@@ -9,7 +9,7 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-image: url(https://th.bing.com/th/id/OIP.G3w7KeLSJOMqLBtqr8anuQHaFj?rs=1&pid=ImgDetMain);
+        background: #151728;
         background-size: cover;
         margin: 0;
         padding: 0;
@@ -155,10 +155,10 @@
     <nav class="navbar" style="display: flex; justify-content: space-around" >
         <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="20%" height="100%" /></div>
         <ul>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Add film</a></li>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Cancel film</a></li>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/update"><i class="fas fa-plus-circle"></i> Update film</a></li>
+            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Add film</a></li>
+            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Cancel film</a></li>
+            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/update"><i class="fas fa-plus-circle"></i> Update film</a></li>
         </ul>
     </nav>
 

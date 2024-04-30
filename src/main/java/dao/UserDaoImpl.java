@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connexion = ConnectionDAO.getConnection();
 
-            preparedStatement = connexion.prepareStatement("select * from Users where email = ? and password_user=?;");
+            preparedStatement = connexion.prepareStatement("select * from users where email = ? and password_user=?;");
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, passWord);
             ResultSet resultat =  preparedStatement.executeQuery();
@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connexion = ConnectionDAO.getConnection();
 
-                preparedStatement = connexion.prepareStatement("insert into Users (id_user,email,password_user,type_user) VALUES (?, ?, ?,?);");
+                preparedStatement = connexion.prepareStatement("insert into users (id_user,email,password_user,type_user) VALUES (?, ?, ?,?);");
                 preparedStatement.setInt(1,user.getIdUser());
                 preparedStatement.setString(2, user.getMail());
                 preparedStatement.setString(3, user.getPassWord());
@@ -71,7 +71,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connexion = ConnectionDAO.getConnection();
 
-            preparedStatement = connexion.prepareStatement("select * from Users where email = ? ");
+            preparedStatement = connexion.prepareStatement("select * from users where email = ? ");
             preparedStatement.setString(1, email);
             ResultSet resultat =  preparedStatement.executeQuery();
             if(resultat.next())

@@ -11,7 +11,7 @@
 <body>
 <div class="signup-container">
     <h2>Sign Up</h2>
-    <form method="post" action="SignUp">
+    <form method="post" action="testSignUp">
         <div class="input-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required >
