@@ -10,7 +10,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: rgba(22, 50, 140, 0.62);
+            background-image: url(https://th.bing.com/th/id/OIP.G3w7KeLSJOMqLBtqr8anuQHaFj?rs=1&pid=ImgDetMain);
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
@@ -154,12 +155,12 @@
 <body>
 <div class="container">
     <nav class="navbar" style="display: flex; justify-content: space-around" >
-        <h1>Cinema Megarama</h1>
+        <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="20%" height="100%" /></div>
         <ul>
             <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Ajouter un film</a></li>
-            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Annuler un film</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Paramètres</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Add film</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Cancel film</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/update"><i class="fas fa-plus-circle"></i> Update film</a></li>
         </ul>
     </nav>
 
@@ -176,6 +177,10 @@
             <input type="text" id="film_duration" name="duration" required><br>
             <label for="film_synopsis">Synopsis :</label>
             <input type="text" id="film_synopsis" name="synopsis" required><br>
+            <label for="background_Url">Background URL:</label><br>
+            <input type="text" id="background" name="background_Url"  required><br>
+            <label for="trailler_url">Trailer URL:</label><br>
+            <input type="text" id="trailler" name="trailler_url"  required><br>
             <label for="film_picture">URL de l'image :</label>
             <input type="text" id="film_picture" name="picture" required><br>
             <input onclick="filmAdded()" type="submit" value="Ajouter le film">
@@ -186,20 +191,6 @@
             </script>
         </form>
     </div>
-
-        <section class="form-section">
-            <h2>Delete Film</h2>
-            <form action="cancel" method="post">
-                <label for="filmId">Enter Film ID:</label>
-                <input type="text" id="filmId" name="filmId" required><br>
-                <input onclick="deleted()" type="submit" value="Delete Film">
-                <script type="text/javascript">
-                    function deleted() {
-                        alert("Film deleted successfully!");
-                    }
-                </script>
-            </form>
-        </section>
 
     <section class="dashboard">
         <h2>Tableau de bord</h2>
