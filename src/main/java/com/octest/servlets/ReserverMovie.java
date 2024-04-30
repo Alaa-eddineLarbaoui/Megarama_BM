@@ -1,5 +1,6 @@
 package com.octest.servlets;
 
+import dao.FilmDAOImpl;
 import dao.ReserveDAOImpl;
 
 import javax.servlet.*;
@@ -26,6 +27,8 @@ public class ReserverMovie extends HttpServlet {
         ReserveDAOImpl reserve =new ReserveDAOImpl();
         try {
             reserve.ReserveMovie(filmId,Tickets);
+            request.setAttribute("alert" , ".");
+
         } catch (ClassNotFoundException e) {
 
             e.printStackTrace();
@@ -33,6 +36,25 @@ public class ReserverMovie extends HttpServlet {
 
 
 
+        }
+        FilmDAOImpl r=new FilmDAOImpl();
+
+        try {
+            request.setAttribute("films", r.ShowFilms());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        FilmDAOImpl disneyfilms = new FilmDAOImpl();
+        try {
+            request.setAttribute("Disneys",disneyfilms.MovieDisney());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
 

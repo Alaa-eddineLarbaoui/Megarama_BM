@@ -2,7 +2,9 @@ package dao;
 
 import com.octest.beans.Films;
 import com.octest.config.ConnectionDAO;
+import org.hibernate.jpa.internal.EntityManagerImpl;
 
+import javax.persistence.EntityManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +15,7 @@ import java.util.List;
 public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
+
 
         ArrayList<Films> films=new ArrayList<>();
         String sql="SELECT film_id, titre, picture FROM films WHERE genre != 'Disney'";
@@ -145,8 +148,8 @@ public class FilmDAOImpl implements FilmDAO{
 
     @Override
     public void updateFilm(Films updatedFilm) throws SQLException, ClassNotFoundException{
-        String sql = "UPDATE films SET titre=?, director=?, genre=?, duration=?, synopsis=?,trailler_url=?,background_Url=?, picture=? WHERE film_id=?";
-        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
+        String sqls = "UPDATE films SET titre=?, director=?, genre=?, duration=?, synopsis=?,trailler_url=?,background_Url=?, picture=? WHERE film_id=?";
+        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sqls);
 
         s.setString(1, updatedFilm.getTitre());
         s.setString(2, updatedFilm.getDirector());
