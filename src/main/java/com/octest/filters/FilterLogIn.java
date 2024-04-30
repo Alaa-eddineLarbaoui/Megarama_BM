@@ -30,7 +30,6 @@ public class FilterLogIn implements Filter {
         String mail = request.getParameter("Email");
         String passWord = request.getParameter("password");
 
-
         User user = null;
         try {
             user = UserDao.getUser(mail);
