@@ -2,7 +2,9 @@ package dao;
 
 import com.octest.beans.Films;
 import com.octest.config.ConnectionDAO;
+import org.hibernate.jpa.internal.EntityManagerImpl;
 
+import javax.persistence.EntityManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +16,7 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
             ArrayList<Films> films=new ArrayList<>();
-            String sql="SELECT film_id, titre , picture FROM films";
+            String sql="SELECT film_id, titre , picture FROM films WHERE genre!='Disney'";
             PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
             ResultSet resultat = statement.executeQuery();
 

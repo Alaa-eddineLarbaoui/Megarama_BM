@@ -219,13 +219,13 @@ header{
     margin: 0 auto;
     border-radius: 12px;
 }
-.cardD > div > img{
+.card_disney{
     border-radius: 18px;
     height: 220px;
     transition: .6s;
     cursor: pointer;
 }
-.cardD > div > img:hover{
+.card_disney:hover{
     transform: scale(1.1);
 }
 .cardD > h1 {
