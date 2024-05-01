@@ -151,7 +151,9 @@
 <c:forEach var="filmS" items="${filmSe}">
     <div class="card-search">
             <div class="search-img">
+                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
                     <img src="${filmS.getPicture()}" width="90%" />
+                </a>
             </div>
             <div class="Scontent">
                 <div class="search-content">
@@ -177,7 +179,7 @@
     <c:forEach var="film" items="${films}">
         <div class="cardD">
             <div>
-                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+                <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
                     <img class="card-image" src="${film.getPicture()}">
                 </a>
             </div>

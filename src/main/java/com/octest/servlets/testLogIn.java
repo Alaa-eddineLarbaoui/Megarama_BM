@@ -1,6 +1,8 @@
 package com.octest.servlets;
 
 import com.octest.beans.User;
+import com.octest.filters.FilterLogIn;
+import com.octest.filters.FilterSignUp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,16 +21,16 @@ public class testLogIn extends HttpServlet {
         HttpSession session = request.getSession();
 
 
-
         User user = (User) session.getAttribute("user");
 
 
 
+        if (user != null && user.getType().equals("admin")) {
 
-        if(user.getType().equals("admin")) {
-            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/Add");
+            response.sendRedirect("/demo_war_exploded/Add");
         } else {
-            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/showFilm");
+
+            response.sendRedirect("/demo_war_exploded/ShowFilms");
         }
     }
 }

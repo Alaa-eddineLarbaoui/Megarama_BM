@@ -21,15 +21,19 @@ public class testSession implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        if(user!=null)
-        {
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+
+        if (!path.equals("/Login") && !path.equals("/SignUp")) {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            if (user != null) {
+                filterChain.doFilter(servletRequest, servletResponse);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
+                dispatcher.include(request, response);
+            }
+        } else {
             filterChain.doFilter(servletRequest, servletResponse);
-        }
-        else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
-            dispatcher.include(request, response);
         }
     }
 
