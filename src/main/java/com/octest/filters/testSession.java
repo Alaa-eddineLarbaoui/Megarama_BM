@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebFilter(filterName = "testSession", urlPatterns = {"/*"})
 public class testSession implements Filter {
@@ -21,16 +22,25 @@ public class testSession implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        if(user!=null)
-        {
-            filterChain.doFilter(servletRequest, servletResponse);
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+
+        if (!path.equals("/LogIn") && !path.equals("/SignUp")){
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            if(user!=null)
+            {
+                filterChain.doFilter(servletRequest, servletResponse);
+            }
+            else{
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
+                dispatcher.include(request, response);
+            }
         }
         else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
-            dispatcher.include(request, response);
+            filterChain.doFilter(servletRequest, servletResponse);
+
         }
+
     }
 
     @Override
