@@ -20,6 +20,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ReactionCommentaire</servlet-name>
+        <servlet-class>com.octest.servlets.ReactionCommentaire</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReactionCommentaire</servlet-name>
+        <url-pattern>/ReactionCommentaire</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>LogIn</servlet-name>
         <servlet-class>com.octest.servlets.LogIn</servlet-class>
     </servlet>
