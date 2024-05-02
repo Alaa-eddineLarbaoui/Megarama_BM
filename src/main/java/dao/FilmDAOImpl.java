@@ -2,9 +2,7 @@ package dao;
 
 import com.octest.beans.Films;
 import com.octest.config.ConnectionDAO;
-import org.hibernate.jpa.internal.EntityManagerImpl;
 
-import javax.persistence.EntityManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
