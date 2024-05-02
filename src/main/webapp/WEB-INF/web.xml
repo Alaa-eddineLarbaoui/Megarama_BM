@@ -69,4 +69,15 @@
         <servlet-name>ReserverMovie</servlet-name>
         <url-pattern>/re</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateFilm</servlet-name>
+        <servlet-class>com.octest.servlets.UpdateFilm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateFilm</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+
+

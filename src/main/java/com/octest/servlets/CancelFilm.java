@@ -17,18 +17,17 @@ public class CancelFilm extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private FilmDAO filmDAO;
 
-    public void init() {
-        filmDAO = new FilmDAOImpl();
-    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/CancelFilm.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int filmId = Integer.parseInt(request.getParameter("filmId"));
+        filmDAO = new FilmDAOImpl();
+        int filmId = Integer.valueOf(request.getParameter("filmId"));
         try {
             filmDAO.cancelFilm(filmId);
         } catch (SQLException e) {
@@ -36,6 +35,6 @@ public class CancelFilm extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Addfilm.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/CancelFilm.jsp").forward(request, response);
     }
 }

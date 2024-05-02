@@ -30,13 +30,16 @@ public class Films {
         this.background_Url=background_Url;
         this.picture=picture;
     }
-    public Films( String titre, String director, String genre, Integer duration, String synopsis ,String picture) {
+    public Films( String titre, String director, String genre, Integer duration, String synopsis ,String picture,String trailler_url,String background_Url) {
         this.titre = titre;
         this.director = director;
         this.genre = genre;
         this.duration = duration;
         this.synopsis = synopsis;
+        this.trailler_url=trailler_url;
+        this.background_Url=background_Url;
         this.picture=picture;
+
     }
 
     private   Integer film_id;

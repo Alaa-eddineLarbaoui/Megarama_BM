@@ -19,7 +19,6 @@ public class FilterSignUp implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         // Initialisation du filtre
     }
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;

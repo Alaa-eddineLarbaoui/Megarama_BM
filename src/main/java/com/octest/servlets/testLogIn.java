@@ -28,7 +28,7 @@ public class testLogIn extends HttpServlet {
         if(user.getType().equals("admin")) {
             response.sendRedirect("/Megarama_Cinema_BM_war_exploded/Add");
         } else {
-            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/showFilm");
+            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/ShowFilms");
         }
     }
 }
