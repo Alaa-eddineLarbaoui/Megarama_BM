@@ -20,6 +20,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ReactionCommentaire</servlet-name>
+        <servlet-class>com.octest.servlets.ReactionCommentaire</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReactionCommentaire</servlet-name>
+        <url-pattern>/ReactionCommentaire</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>LogIn</servlet-name>
         <servlet-class>com.octest.servlets.LogIn</servlet-class>
     </servlet>
@@ -69,4 +78,15 @@
         <servlet-name>ReserverMovie</servlet-name>
         <url-pattern>/re</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateFilm</servlet-name>
+        <servlet-class>com.octest.servlets.UpdateFilm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateFilm</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+
+

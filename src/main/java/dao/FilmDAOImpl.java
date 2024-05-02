@@ -14,7 +14,7 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
             ArrayList<Films> films=new ArrayList<>();
-            String sql="SELECT film_id, titre , picture FROM films";
+            String sql="SELECT film_id, titre , picture FROM films WHERE genre!='Disney'";
             PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
             ResultSet resultat = statement.executeQuery();
 
@@ -61,7 +61,7 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> addFilms(Films filmToAdd) throws SQLException, ClassNotFoundException {
         ArrayList<Films> addfilms = new ArrayList<>();
-        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis,picture) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO films ( titre, director, genre, duration, synopsis,background_Url,trailler_url,picture) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
 
         s.setString(1, filmToAdd.getTitre());
@@ -69,7 +69,9 @@ public class FilmDAOImpl implements FilmDAO{
         s.setString(3, filmToAdd.getGenre());
         s.setInt(4, filmToAdd.getDuration());
         s.setString(5, filmToAdd.getSynopsis());
-        s.setString(6, filmToAdd.getPicture());
+        s.setString(6, filmToAdd.gettrailler_url());
+        s.setString(7, filmToAdd.gettrailler_url());
+        s.setString(8, filmToAdd.getPicture());
 
         int rowsInserted = s.executeUpdate();
         if (rowsInserted > 0) {
@@ -142,5 +144,29 @@ public class FilmDAOImpl implements FilmDAO{
         }
         return FilmsDisney;
     }
+
+    @Override
+    public void updateFilm(Films updatedFilm) throws SQLException, ClassNotFoundException{
+        String sql = "UPDATE films SET titre=?, director=?, genre=?, duration=?, synopsis=?,trailler_url=?,background_Url=?, picture=? WHERE film_id=?";
+        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
+
+        s.setString(1, updatedFilm.getTitre());
+        s.setString(2, updatedFilm.getDirector());
+        s.setString(3, updatedFilm.getGenre());
+        s.setInt(4, updatedFilm.getDuration());
+        s.setString(5, updatedFilm.getSynopsis());
+        s.setString(6, updatedFilm.gettrailler_url());
+        s.setString(7, updatedFilm.getBackground_Url());
+        s.setString(8, updatedFilm.getPicture());
+        s.setInt(9, updatedFilm.getFilm_id());
+
+        int rowsUpdated = s.executeUpdate();
+        if (rowsUpdated > 0) {
+            System.out.println("Film updated successfully.");
+        } else {
+            System.out.println("Failed to update the film.");
+        }
+    }
+
 }
 

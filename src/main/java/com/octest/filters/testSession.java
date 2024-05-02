@@ -24,7 +24,9 @@ public class testSession implements Filter {
         String path = request.getRequestURI().substring(request.getContextPath().length());
 
         if (!path.equals("/Login") && !path.equals("/SignUp")) {
+
             HttpSession session = request.getSession();
+
             User user = (User) session.getAttribute("user");
             if (user != null) {
                 filterChain.doFilter(servletRequest, servletResponse);

@@ -3,9 +3,9 @@ package com.octest.beans;
 import java.util.Date;
 
 public class Reservations {
-    public Reservations(Integer reservation_id, Integer user_id, Integer film_id, Date reservationDate, Integer numbreOfTickets){
+    public Reservations(Integer reservation_id, Integer film_id, Date reservationDate, Integer numbreOfTickets){
         this.reservation_id = reservation_id;
-        this.user_id = user_id;
+
         this.film_id = film_id;
         this.reservationDate = reservationDate;
         this.numbreOfTickets = numbreOfTickets;
@@ -29,13 +29,9 @@ public class Reservations {
         this.reservation_id = reservation_id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
+
+
 
     public Integer getFilm_id() {
         return film_id;

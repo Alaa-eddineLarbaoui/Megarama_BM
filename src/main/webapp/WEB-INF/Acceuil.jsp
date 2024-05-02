@@ -151,9 +151,11 @@
 <c:forEach var="filmS" items="${filmSe}">
     <div class="card-search">
             <div class="search-img">
-                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
+
+                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
                     <img src="${filmS.getPicture()}" width="90%" />
-                </a>
+                    </a>
+
             </div>
             <div class="Scontent">
                 <div class="search-content">
@@ -179,8 +181,9 @@
     <c:forEach var="film" items="${films}">
         <div class="cardD">
             <div>
-                <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
-                    <img class="card-image" src="${film.getPicture()}">
+           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+                    <img class="card_disney" src="${film.getPicture()}">
+
                 </a>
             </div>
             <h1>${film.getTitre()}...</h1>
@@ -207,7 +210,9 @@
         <c:forEach var="Disneys" items="${Disneys}">
             <div class="cardD">
                 <div>
-                    <img src="${Disneys.getPicture()}"/>
+                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <img class="card_disney" src="${Disneys.getPicture()}"/>
+                    </a>
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
 
@@ -221,9 +226,15 @@
             </div>
         </c:forEach>
     </div>
+    <p id="al" style="display: none">${alert}</p>
 </section>
 
-
+    <script>
+        const al = document.getElementById("al");
+        if (al.innerHTML === "."){
+            alert("The Reservation add successfully")
+        }
+    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
