@@ -13,20 +13,19 @@ import java.util.List;
 public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-            ArrayList<Films> films=new ArrayList<>();
-            String sql="SELECT film_id, titre , picture FROM films WHERE genre!='Disney'";
-            PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
-            ResultSet resultat = statement.executeQuery();
-
-            while (resultat.next()) {
-                Integer id_film = resultat.getInt("film_id");
-                String title=resultat.getString("titre");
-                String picture=resultat.getString("picture");
-                Films flm=new Films(id_film,title,picture);
-                films.add(flm);
 
 
+        ArrayList<Films> films=new ArrayList<>();
+        String sql="SELECT film_id, titre, picture FROM films WHERE genre != 'Disney'";
+        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
+        ResultSet resultat = statement.executeQuery();
 
+        while (resultat.next()) {
+            Integer id_film = resultat.getInt("film_id");
+             String title=resultat.getString("titre");
+            String picture=resultat.getString("picture");
+            Films flm=new Films(id_film,title,picture);
+            films.add(flm);
 
     }
         return films;
@@ -147,8 +146,8 @@ public class FilmDAOImpl implements FilmDAO{
 
     @Override
     public void updateFilm(Films updatedFilm) throws SQLException, ClassNotFoundException{
-        String sql = "UPDATE films SET titre=?, director=?, genre=?, duration=?, synopsis=?,trailler_url=?,background_Url=?, picture=? WHERE film_id=?";
-        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sql);
+        String sqls = "UPDATE films SET titre=?, director=?, genre=?, duration=?, synopsis=?,trailler_url=?,background_Url=?, picture=? WHERE film_id=?";
+        PreparedStatement s = ConnectionDAO.getConnection().prepareStatement(sqls);
 
         s.setString(1, updatedFilm.getTitre());
         s.setString(2, updatedFilm.getDirector());

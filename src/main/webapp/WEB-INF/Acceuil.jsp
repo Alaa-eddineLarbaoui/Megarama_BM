@@ -148,11 +148,23 @@
     <div class="Smain3">
 
     </div>
-<c:forEach var="filmS" items="${filmSe}">
-    <div class="card-search">
+
+
+    <c:if test="${filmSe.size() == 0 }">
+        <div class="card-search">
+            <div class="Scontent">
+                <h1>No results found.</h1>
+            </div>
+        </div>
+    </c:if>
+
+    <c:forEach var="filmS" items="${filmSe}">
+        <div class="card-search">
             <div class="search-img">
 
+
                 <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
 
@@ -167,8 +179,9 @@
                     <h2>2024</h2>
                 </div>
             </div>
-    </div>
-</c:forEach>
+        </div>
+    </c:forEach>
+
 </section>
 
 <div class="titre-cards">
@@ -181,7 +194,9 @@
     <c:forEach var="film" items="${films}">
         <div class="cardD">
             <div>
+
            <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+
                     <img class="card_disney" src="${film.getPicture()}">
 
                 </a>
@@ -210,8 +225,10 @@
         <c:forEach var="Disneys" items="${Disneys}">
             <div class="cardD">
                 <div>
+
                     <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
+
                     </a>
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
@@ -229,12 +246,13 @@
     <p id="al" style="display: none">${alert}</p>
 </section>
 
-    <script>
-        const al = document.getElementById("al");
-        if (al.innerHTML === "."){
-            alert("The Reservation add successfully")
-        }
-    </script>
+<script>
+    const al = document.getElementById("al");
+    if (al.innerHTML === "."){
+        alert("The Reservation add successfully")
+    }
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
