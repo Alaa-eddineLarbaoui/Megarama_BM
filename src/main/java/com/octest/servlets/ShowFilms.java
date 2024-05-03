@@ -35,10 +35,9 @@ public class ShowFilms extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HibernateDAOImpl Hr=new HibernateDAOImpl();
         Films flm=new Films();
-
+        FilmDAOImpl films= new FilmDAOImpl();
         try {
-
-            request.setAttribute("films", Hr.show(Films.class ,flm));
+            request.setAttribute("films",films.ShowFilms());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
@@ -46,10 +45,21 @@ public class ShowFilms extends HttpServlet {
         }
 
 
+//        try {
+
+           // request.setAttribute("films", Hr.show(Films.class ,flm));
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
 
 
         RecommendationDAOImpl ff=new RecommendationDAOImpl();
         request.setAttribute("Recommendation",ff.ShowRecommendation());
+
 
         FilmDAOImpl disneyfilms = new FilmDAOImpl();
         try {
@@ -61,8 +71,6 @@ public class ShowFilms extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
