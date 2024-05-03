@@ -86,6 +86,22 @@
         <servlet-name>UpdateFilm</servlet-name>
         <url-pattern>/update</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddFavoriServlet</servlet-name>
+        <servlet-class>com.octest.servlets.AddFavoriServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFavoriServlet</servlet-name>
+        <url-pattern>/save</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListFavoris</servlet-name>
+        <servlet-class>com.octest.servlets.ListFavoris</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListFavoris</servlet-name>
+        <url-pattern>/ListFavoris</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

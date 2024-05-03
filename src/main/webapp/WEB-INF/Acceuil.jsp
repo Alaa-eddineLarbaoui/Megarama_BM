@@ -16,6 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><%@ include file="style.css"%></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>Document</title>
 
     <style>
@@ -77,28 +79,24 @@
 <body>
 
 <header>
-
-    <div class="headr">
+    <div class="headr" style="display: flex; justify-content: space-between; align-items: center;">
         <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="100%" /></div>
         <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
             <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
-
-                <form method="post" action="search" >
-
-                    <div style="display: flex; flex-direction: row; gap:10px; padding-top: 5px;">
+                <form method="post" action="search">
+                    <div style="display: flex; flex-direction: row; gap: 10px; padding-top: 5px;">
                         <input class="search col-md-4" type="text" placeholder="Search" name="title">
-
                         <button class="btn btn-outline-light col-md-3" type="submit">Chercher</button>
-
                     </div>
-
-
-
                 </form>
             </nav>
+            <div style="display: flex; justify-content: end;">
+                <button class="btn btn-outline-light col-md-3" type="submit"><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/ListFavoris">show my list</a></button>
+            </div>
         </div>
     </div>
 </header>
+
 
 
 
@@ -150,7 +148,6 @@
             <div class="search-img">
 
 
-
                 <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
 
@@ -198,7 +195,9 @@
                 <h2>2024</h2>
                 <h3>Movie</h3>
                 <h3>8K</h3>
+                <a href="#" class="save-icon"><i class="bi bi-save"></i></a>
             </div>
+
         </div>
     </c:forEach>
     </div>
@@ -231,7 +230,10 @@
                     <h2>2024</h2>
                     <h3>Movie</h3>
                     <h3>8K</h3>
+                    <a href="#" class="save-icon" id="saveFilm"><i class="bi bi-save"></i></a>
+
                 </div>
+
 
             </div>
         </c:forEach>
@@ -266,13 +268,50 @@
 
 <script>
     const al = document.getElementById("al");
-    if (al.innerHTML === "."){
+    if (al.innerHTML === ".") {
         alert("The Reservation add successfully")
     }
+
+        document.getElementById("saveFilm").addEventListener("click", function(event) {
+        event.preventDefault(); // Empêcher le lien de déclencher la navigation par défaut
+
+
+        var filmId = "ID_DU_FILM_A_ENREGISTRER";
+        var filmTitle = "TITRE_DU_FILM_A_ENREGISTRER";
+        var filmPicture = "URL_IMAGE_DU_FILM_A_ENREGISTRER";
+
+
+        var filmData = {
+        filmId: filmId,
+        filmTitle: filmTitle,
+        filmPicture: filmPicture
+    };
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "AddFavoriServlet", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+
+        alert("Film saved successfully!");
+    } else {
+
+        alert("An error occurred while saving the film.");
+    }
+    }
+    };
+        xhr.send(JSON.stringify(filmData));
+    });
+
+
 </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
