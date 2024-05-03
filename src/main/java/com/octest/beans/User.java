@@ -1,10 +1,19 @@
 package com.octest.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+
 public class User {
+       @Id
        private int idUser;
        private String mail;
        private String passWord;
        private String type;
+
+
+
 
 
        public String getMail() {
@@ -32,11 +41,13 @@ public class User {
        }
 
 
-       public int getIdUser() {
+       public Integer getIdUser() {
               return idUser;
        }
 
-       public void setIdUser(int idUser) {
+       public void setIdUser(Integer idUser) {
               this.idUser = idUser;
        }
+
+
 }
