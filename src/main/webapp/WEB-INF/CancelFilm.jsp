@@ -180,7 +180,7 @@
         <div class="stats">
             <div class="stat-card">
                 <h3>Total des films</h3>
-                <p>50</p>
+                <p><c:out value="${somme}"></c:out></p>
             </div>
             <div class="stat-card">
                 <h3>Total des utilisateurs</h3>
