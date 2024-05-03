@@ -168,18 +168,6 @@ public class FilmDAOImpl implements FilmDAO{
     }
 
     @Override
-    public int filmsCount() throws SQLException, ClassNotFoundException {
-        String requet = "SELECT COUNT(film_id) from films";
-        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
-        ResultSet resultat = statement.executeQuery();
-        Integer ss=0;
-        while (resultat.next()) {
-            ss = resultat.getInt("film_id");
-
-        }
-        return ss;
-    }
-
 
 }
 

@@ -1,5 +1,13 @@
 package com.octest.beans;
 
+import jdk.Exported;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Films {
     public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis,String picture) {
         this.film_id = film_id;
@@ -44,7 +52,8 @@ public class Films {
         this.picture=picture;
 
     }
-
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private   Integer film_id;
    private String titre;
    private String director;
@@ -56,8 +65,9 @@ public class Films {
 
     private String background_Url;
 
+    public Films() {
 
-
+    }
 
 
     public String getPicture() {
