@@ -29,7 +29,6 @@ public class AddFavoriServlet extends HttpServlet {
                 FavorisDAO favorisDAO = new FavorisDAOImpl();
                 favorisDAO.Save(favoris);
 
-                response.sendRedirect("succes.jsp");
             } else {
                 throw new ServletException("Tous les paramètres sont nécessaires.");
             }
