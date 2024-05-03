@@ -2,6 +2,7 @@
 package com.octest.servlets;
 
 import dao.FilmDAOImpl;
+import dao.RecommendationDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,6 +37,12 @@ public class ShowFilms extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
+
+
+        RecommendationDAOImpl ff=new RecommendationDAOImpl();
+        request.setAttribute("Recommendation",ff.ShowRecommendation());
 
         FilmDAOImpl disneyfilms = new FilmDAOImpl();
         try {

@@ -163,7 +163,7 @@
             <div class="search-img">
 
 
-                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -195,7 +195,7 @@
         <div class="cardD">
             <div>
 
-           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+           <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                     <img class="card_disney" src="${film.getPicture()}">
 
@@ -226,7 +226,7 @@
             <div class="cardD">
                 <div>
 
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>
@@ -243,6 +243,31 @@
             </div>
         </c:forEach>
     </div>
+
+    <div class="titre-cards">
+        <h1>Recommandations de films</h1>
+    </div>
+
+    <section class="main-cards">
+        <div class="card-wrapper">
+            <c:forEach var="recommendation" items="${Recommendation}">
+                <div class="cardD">
+                    <div>
+                        <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                            <img class="card_disney" src="${recommendation.getPicture()}"/>
+                        </a>
+                    </div>
+                    <h1>${recommendation.getTitre()}...</h1>
+                    <div class="card-content">
+                        <h2>2024</h2>
+                        <h3>Movie</h3>
+                        <h3>8K</h3>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+
     <p id="al" style="display: none">${alert}</p>
 </section>
 
