@@ -107,21 +107,25 @@
             </section>
 
 
-            </c:forEach>
+
 
         </section>
+        <div class="div_reservation">
+            <h1 title="reservation">Commentaires</h1>
+            <form action="ReactionCommentaire" method="post"> <!-- Utilisez le nom correct du servlet -->
+                <input type="hidden" name="film_id" value="${detail.getFilm_id()}">
+                <label for="seat">Commenter :</label><br>
+                <input type="text" id="seat" name="Commentaire" required><br><br>
 
+                <label for="seatt">Notation :</label><br>
+                <input type="Number" id="seatt" name="Notation" required><br><br>
 
+                <div class="button_reserve">
+                    <input type="submit" value="Envoyez">
+                </div>
+            </form>
+        </div>
 
-
-        <c:forEach var="detail" items="${details}">
-
-            <div class="cardd">
-
-                <h1 class="textt-card">${detail.getTitre()}</h1>
-                <a href="#" class="details btn btn-primary">Details</a>
-
-            </div>
         </c:forEach>
 
     </section>
