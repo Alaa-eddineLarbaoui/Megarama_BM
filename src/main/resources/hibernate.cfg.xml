@@ -20,7 +20,7 @@
         <property name = "hibernate.show_sql">true</property>
         <property name = "hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class="com.octest.beans.Reaction" />
+        <mapping class="com.octest.beans.Favoris" />
 
     </session-factory>
 </hibernate-configuration>

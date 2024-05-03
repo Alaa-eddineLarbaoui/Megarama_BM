@@ -16,6 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><%@ include file="style.css"%></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>Document</title>
 
     <style>
@@ -163,7 +165,7 @@
             <div class="search-img">
 
 
-                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -195,7 +197,7 @@
         <div class="cardD">
             <div>
 
-           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+           <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                     <img class="card_disney" src="${film.getPicture()}">
 
@@ -207,7 +209,9 @@
                 <h2>2024</h2>
                 <h3>Movie</h3>
                 <h3>8K</h3>
+                <a href="#" class="save-icon"><i class="bi bi-save"></i></a>
             </div>
+
         </div>
     </c:forEach>
     </div>
@@ -226,7 +230,7 @@
             <div class="cardD">
                 <div>
 
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>
@@ -238,7 +242,9 @@
                     <h2>2024</h2>
                     <h3>Movie</h3>
                     <h3>8K</h3>
+                    <a href="#" class="save-icon"><i class="bi bi-save"></i></a>
                 </div>
+
 
             </div>
         </c:forEach>
