@@ -108,34 +108,21 @@
             direction="vertical"
             pagination="true"
             pagination-clickable="true"
+            autoplay="true"
     >
         <swiper-slide
         ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images7.alphacoders.com/134/thumb-1920-1343598.png"
+        ><img src="https://i.ibb.co/THmw4K1/3.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
+        ><img src="https://i.ibb.co/m8xH1v2/2.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/descendants-the-rise-of-red-rita-ora_bmdram6UmZqaraWkpJRobWllrWdma2U.jpg"
+        ><img src="https://i.ibb.co/wLwL9Yp/1.jpg"
         /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/disney-the-marvels-5k_bmZraWeUmZqaraWkpJRqZmdlrWdtbWU.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
+
     </swiper-container>
 
     <div class="Smain">
@@ -163,7 +150,7 @@
             <div class="search-img">
 
 
-                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+                <a href="/Megarama_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -195,7 +182,7 @@
         <div class="cardD">
             <div>
 
-           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+           <a href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                     <img class="card_disney" src="${film.getPicture()}">
 
@@ -226,7 +213,7 @@
             <div class="cardD">
                 <div>
 
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>
