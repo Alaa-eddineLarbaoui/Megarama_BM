@@ -82,7 +82,7 @@
 
     <div class="headr">
         <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="100%" /></div>
-        <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
+        <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer" style="display: flex; justify-content: space-between; align-items: center;">
             <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
 
                 <form method="post" action="search" >
@@ -97,7 +97,9 @@
 
 
                 </form>
+
             </nav>
+            <button><a href="#">show my list</a></button>
         </div>
     </div>
 </header>
