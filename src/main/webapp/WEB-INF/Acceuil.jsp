@@ -150,7 +150,7 @@
             <div class="search-img">
 
 
-                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+                <a href="/Megarama_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -182,7 +182,7 @@
         <div class="cardD">
             <div>
 
-           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
+           <a href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                     <img class="card_disney" src="${film.getPicture()}">
 
@@ -213,7 +213,7 @@
             <div class="cardD">
                 <div>
 
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>

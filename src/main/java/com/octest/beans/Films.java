@@ -19,7 +19,10 @@ public class Films {
         this.picture=picture;
     }
 
-    public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis,  String trailler_url,String background_Url ,String picture) {
+    public Films() {
+    }
+
+    public Films(Integer film_id, String titre, String director, String genre, Integer duration, String synopsis, String trailler_url, String background_Url , String picture) {
         this.film_id = film_id;
         this.titre = titre;
         this.director = director;
