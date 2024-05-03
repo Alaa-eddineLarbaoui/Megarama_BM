@@ -2,7 +2,8 @@ package com.octest.servlets;
 
 import com.octest.beans.Reaction;
 import com.octest.beans.User;
-import dao.ReactionDAOImpl;
+import dao.HibernateDAO;
+import dao.HibernateDAOImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -24,21 +25,18 @@ public class ReactionCommentaire extends HttpServlet {
             Integer filmId = Integer.parseInt(request.getParameter("film_id"));
             Integer notation = Integer.parseInt(request.getParameter("Notation"));
             User user = (User) session.getAttribute("user");
-            System.out.println(filmId);
-            System.out.println(notation);
-            System.out.println(user);
-            System.out.println(commentaire);
-            System.out.println(session);
             if (commentaire != null && user != null) {
                 Reaction reaction = new Reaction();
                 reaction.setNotation(notation);
                 reaction.setIdFilm(filmId);
                 reaction.setCommentaire(commentaire);
                 reaction.setIdUserR(user.getIdUser());
-                ReactionDAOImpl reactionIM = new ReactionDAOImpl();
-                reactionIM.Save(reaction);
-
-
+                HibernateDAO hibernateDAO = new HibernateDAOImpl();
+                try {
+                    hibernateDAO.save(reaction);
+                } catch (InstantiationException | IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
 
                 response.getWriter().println("Erreur : paramètres manquants");
