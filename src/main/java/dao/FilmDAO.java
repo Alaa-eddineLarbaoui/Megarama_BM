@@ -15,7 +15,7 @@ public interface FilmDAO {
     int filmsCount() throws SQLException, ClassNotFoundException;
 
 
-
+    Integer filmscount()throws SQLException, ClassNotFoundException;
 
 
     List<Films> MovieDisney() throws SQLException, ClassNotFoundException;
