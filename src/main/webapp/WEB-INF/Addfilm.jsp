@@ -178,9 +178,9 @@
             <label for="film_synopsis">Synopsis :</label>
             <input type="text" id="film_synopsis" name="synopsis" required><br>
             <label for="background_Url">Background URL:</label><br>
-            <input type="text" id="background" name="background_Url"  required><br>
+            <input type="text" id="background_Url" name="background_Url"  required><br>
             <label for="trailler_url">Trailer URL:</label><br>
-            <input type="text" id="trailler" name="trailler_url"  required><br>
+            <input type="text" id="trailler_url" name="trailler_url"  required><br>
             <label for="film_picture">URL de l'image :</label>
             <input type="text" id="film_picture" name="picture" required><br>
             <input onclick="filmAdded()" type="submit" value="Ajouter le film">

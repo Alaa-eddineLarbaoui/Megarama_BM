@@ -10,7 +10,9 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style><%@ include file="MovieDetails.css"%></style>
+
 </head>
 
 <body class="body">
@@ -63,7 +65,13 @@
                     <div class="date_rating">
                         <p class="time">${detail.getDuration()} minutes</p>
                     </div>
-
+                    <div class="rating" data-rating="0">
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
                 </div>
 
                 <section class="Sec_input_reservation">
@@ -132,6 +140,23 @@
 
 
 </main>
+<script>
+        const ratingStars = document.querySelectorAll(".rating span");
+        const ratingValue = document.querySelector(".rating").getAttribute("data-rating");
 
+        ratingStars.forEach(function(star, index) {
+            star.addEventListener("click", function() {
+                const rating = index + 1;
+                document.querySelector(".rating").setAttribute("data-rating",rating);
+                for (let i = 0; i < ratingStars.length; i--) {
+                    if (i < rating) {
+                        ratingStars[i].id="checked";
+                    } else {
+                        ratingStars[i].id="";
+                    }
+                }
+            });
+        });
+</script>
 </body>
 </html>

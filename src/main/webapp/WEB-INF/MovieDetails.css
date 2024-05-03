@@ -622,7 +622,29 @@ body.light .menu ul li.hovered a ::after {
 .div_reservation{
     background-color: white;
 */
+/*Annotation*/
+#checked {
+    color: gold;
+}
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 6px;
+}
 
+.rating > span {
+    display: inline-block;
+    width: 1.1em;
+    color: #ccc;
+}
+.rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+      color: gold;
+    cursor: pointer;
+  }
 
 
 

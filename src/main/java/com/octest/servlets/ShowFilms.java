@@ -31,6 +31,7 @@ public class ShowFilms extends HttpServlet {
 
         try {
             request.setAttribute("films", r.ShowFilms());
+            request.setAttribute("notations",r.getNotation());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

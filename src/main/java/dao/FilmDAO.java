@@ -18,6 +18,6 @@ public interface FilmDAO {
 
 
     List<Films> MovieDisney() throws SQLException, ClassNotFoundException;
-
+    List<Films> getNotation() throws SQLException, ClassNotFoundException;
 
 }
