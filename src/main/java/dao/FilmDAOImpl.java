@@ -146,13 +146,14 @@ public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> getNotation() throws SQLException, ClassNotFoundException {
         ArrayList<Films> notationFilms=new ArrayList<>();
-        String requet = "SELECT film_id , SUM(notation) as notation from reactions ";
+        String requet = "SELECT idFilm , SUM(notation) as notation from reaction ";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
         ResultSet resultat = statement.executeQuery();
         while (resultat.next()) {
-            Integer id_film = resultat.getInt("film_id");
+            Integer id_film = resultat.getInt("idFilm");
             Integer sumNotation = resultat.getInt("notation");
-            String requet2 = "SELECT count(id_user) as countUser from reactions where film_id=? ";
+            String requet2 = "SELECT count(idUserR) as countUser from reaction where idFilm=? ";
+            System.out.println(id_film);
             statement = ConnectionDAO.getConnection().prepareStatement(requet2);
             statement.setInt(1, id_film);
             resultat = statement.executeQuery();

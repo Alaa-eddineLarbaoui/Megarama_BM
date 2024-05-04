@@ -67,11 +67,11 @@ public class Reaction {
     public Reaction() {
     }
 
-    public Reaction( Integer idUserR, Integer idFilm,String Commentaire,Integer notation) {
-        this.IdUserR = idUserR;
-        this.idFilm = idFilm;
+    public Reaction( String Commentaire,Integer idUserR,Integer notation,Integer idFilm) {
         this.Commentaire = Commentaire;
+        this.IdUserR = idUserR;
         this.Notation = notation;
+        this.idFilm = idFilm;
     }
 
     @Id

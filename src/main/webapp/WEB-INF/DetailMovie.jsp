@@ -67,6 +67,7 @@
                     </div>
 
                     <form id="ratingForm" action="Notation" method="post">
+                        <input type="hidden" name="film_id" value="${detail.getFilm_id()}">
                     <div class="rating" data-rating="0">
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
