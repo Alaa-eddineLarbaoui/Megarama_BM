@@ -206,6 +206,15 @@ header{
     margin: 0 auto;
 
 }
+.main-cardss{
+    width: 90%;
+    height: 400px;
+    padding: 15px 5px;
+    display: flex;
+    overflow: auto;
+    margin: 0 auto;
+}
+
 .card-wrapper{
     display: flex;
 }

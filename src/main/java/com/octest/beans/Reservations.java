@@ -1,7 +1,11 @@
 package com.octest.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
-
+@Entity
 public class Reservations {
     public Reservations(Integer reservation_id, Integer film_id, Date reservationDate, Integer numbreOfTickets){
         this.reservation_id = reservation_id;
@@ -11,7 +15,8 @@ public class Reservations {
         this.numbreOfTickets = numbreOfTickets;
 
     }
-
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservation_id;
     private Integer user_id;
     private   Integer film_id;
@@ -19,6 +24,11 @@ public class Reservations {
     private Date reservationDate;
     private Integer numbreOfTickets;
 
+    public Reservations(Integer film_id, Integer numbreOfTickets) {
+        this.film_id = film_id;
+        this.numbreOfTickets=numbreOfTickets;
+
+    }
 
 
     public Integer getReservation_id() {

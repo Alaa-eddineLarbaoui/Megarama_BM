@@ -13,8 +13,6 @@ import java.util.List;
 public class FilmDAOImpl implements FilmDAO{
     @Override
     public List<Films> ShowFilms() throws SQLException, ClassNotFoundException {
-
-
         ArrayList<Films> films=new ArrayList<>();
         String sql="SELECT film_id, titre, picture FROM films WHERE genre != 'Disney'";
         PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(sql);
@@ -22,14 +20,15 @@ public class FilmDAOImpl implements FilmDAO{
 
         while (resultat.next()) {
             Integer id_film = resultat.getInt("film_id");
-             String title=resultat.getString("titre");
+            String title=resultat.getString("titre");
             String picture=resultat.getString("picture");
             Films flm=new Films(id_film,title,picture);
             films.add(flm);
 
-    }
+        }
         return films;
     }
+
 
     @Override
     public List<Films> SearchFilms(String Title) throws SQLException, ClassNotFoundException {
@@ -142,6 +141,33 @@ public class FilmDAOImpl implements FilmDAO{
             FilmsDisney.add(Disneyflm);
         }
         return FilmsDisney;
+    }
+
+    @Override
+    public List<Films> getNotation() throws SQLException, ClassNotFoundException {
+        ArrayList<Films> notationFilms=new ArrayList<>();
+        String requet = "SELECT idFilm , SUM(notation) as notation from reaction ";
+        PreparedStatement statement = ConnectionDAO.getConnection().prepareStatement(requet);
+        ResultSet resultat = statement.executeQuery();
+        while (resultat.next()) {
+            Integer id_film = resultat.getInt("idFilm");
+            Integer sumNotation = resultat.getInt("notation");
+            String requet2 = "SELECT count(idUserR) as countUser from reaction where idFilm=? ";
+            System.out.println(id_film);
+            statement = ConnectionDAO.getConnection().prepareStatement(requet2);
+            statement.setInt(1, id_film);
+            resultat = statement.executeQuery();
+            Integer numberUser=0;
+            if (resultat.next()) {
+                numberUser = resultat.getInt("countUser");
+            }
+            float notation = (float) sumNotation/numberUser;
+            String notationFormattee = String.format("%.1f", notation);
+
+            Films film = new Films(id_film,notationFormattee);
+            notationFilms.add(film);
+        }
+        return notationFilms;
     }
 
     @Override

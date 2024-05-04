@@ -8,6 +8,7 @@ import dao.HibernateDAO;
 import dao.HibernateDAOImpl;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -32,6 +33,7 @@ public class ShowFilms extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         HibernateDAO Hr=new HibernateDAOImpl();
         Films flm=new Films();
         FilmDAOImpl films= new FilmDAOImpl();
@@ -44,6 +46,32 @@ public class ShowFilms extends HttpServlet {
         } catch (InstantiationException | IllegalAccessException e) {
            throw new RuntimeException(e);
        }
+
+        HibernateDAOImpl Hr=new HibernateDAOImpl();
+        Films flm=new Films();
+        FilmDAOImpl films= new FilmDAOImpl();
+        try {
+            request.setAttribute("films", films.ShowFilms());
+            request.setAttribute("notations",films.getNotation());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        HibernateDAOImpl hh=new HibernateDAOImpl();
+
+
+        try {
+            request.setAttribute("re",hh.ShowRecommendation());
+
+           // request.setAttribute("films", Hr.show(Films.class ,flm));
+
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
 
 
 //        RecommendationDAOImpl ff=new RecommendationDAOImpl();
@@ -60,6 +88,8 @@ public class ShowFilms extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 

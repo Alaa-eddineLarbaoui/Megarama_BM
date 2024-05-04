@@ -23,20 +23,23 @@ public class testSession implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String path = request.getRequestURI().substring(request.getContextPath().length());
 
-        if (!path.equals("/Login") && !path.equals("/SignUp")) {
-
+        if (!path.equals("/LogIn") && !path.equals("/SignUp")){
             HttpSession session = request.getSession();
-
             User user = (User) session.getAttribute("user");
-            if (user != null) {
+            if(user!=null)
+            {
                 filterChain.doFilter(servletRequest, servletResponse);
-            } else {
+            }
+            else{
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
                 dispatcher.include(request, response);
             }
-        } else {
-            filterChain.doFilter(servletRequest, servletResponse);
         }
+        else{
+            filterChain.doFilter(servletRequest, servletResponse);
+
+        }
+
     }
 
     @Override
