@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><%@ include file="style.css"%></style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 
@@ -108,34 +109,21 @@
             direction="vertical"
             pagination="true"
             pagination-clickable="true"
+            autoplay="true"
     >
         <swiper-slide
         ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images7.alphacoders.com/134/thumb-1920-1343598.png"
+        ><img src="https://i.ibb.co/THmw4K1/3.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
+        ><img src="https://i.ibb.co/m8xH1v2/2.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/descendants-the-rise-of-red-rita-ora_bmdram6UmZqaraWkpJRobWllrWdma2U.jpg"
+        ><img src="https://i.ibb.co/wLwL9Yp/1.jpg"
         /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/disney-the-marvels-5k_bmZraWeUmZqaraWkpJRqZmdlrWdtbWU.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
+
     </swiper-container>
 
     <div class="Smain">
@@ -163,7 +151,9 @@
             <div class="search-img">
 
 
+
                 <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
+
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -195,9 +185,17 @@
         <div class="cardD">
             <div>
 
+
            <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
-                    <img class="card_disney" src="${film.getPicture()}">
+
+                    <div class="img_comment">
+                        <img class="card_disney" src="${film.getPicture()}">
+                        <div class="comments">
+                            <i class="fa-solid fa-comment" id="icon"></i>
+                            <p>1,2K</p>
+                        </div>
+                    </div>
 
                 </a>
             </div>
@@ -226,7 +224,9 @@
             <div class="cardD">
                 <div>
 
+
                     <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>
