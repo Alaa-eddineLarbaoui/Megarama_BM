@@ -13,5 +13,5 @@ public interface HibernateDAO {
     <T> Object load(Class<T> C, Integer id) throws InstantiationException, IllegalAccessException;
     <T> ArrayList<T> get(Class<T> C, Integer id) throws InstantiationException, IllegalAccessException;
     public <T> Object byTitle(Class<T> C, String title) throws InstantiationException, IllegalAccessException;
-    public <T> ArrayList<T> ShowRecommendation(Class<T> C);
+    public <T> ArrayList<T> ShowRecommendation()throws InstantiationException, IllegalAccessException;
 }

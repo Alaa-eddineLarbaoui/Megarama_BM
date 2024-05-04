@@ -14,6 +14,19 @@
 </head>
 
 <body class="body">
+<div class="preloader">
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span>Loading</span>
+    </div>
+
+
+</div>
 
 <main class="main">
     <div class=" overlay overlay2"></div>
@@ -63,6 +76,7 @@
                     <div class="date_rating">
                         <p class="time">${detail.getDuration()} minutes</p>
                     </div>
+
 
                 </div>
 
@@ -132,6 +146,12 @@
 
 
 </main>
+<script>
+    const preLoader = document.querySelector(".preloader");
 
+    window.addEventListener("load", function () {
+        preLoader.style.display = "none";
+    });
+</script>
 </body>
 </html>
