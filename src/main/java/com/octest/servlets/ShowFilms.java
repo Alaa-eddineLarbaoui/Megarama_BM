@@ -40,14 +40,13 @@ public class ShowFilms extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-//        try {
+        try {
 
-           // request.setAttribute("films", Hr.show(Films.class ,flm));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
+            request.setAttribute("films", Hr.show(Films.class));
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
 
         FilmDAOImpl disneyfilms = new FilmDAOImpl();
         try {
