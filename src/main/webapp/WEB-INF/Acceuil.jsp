@@ -220,18 +220,21 @@
         <div class="cardD">
             <div>
 
-           <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+
+
+          <!-- <a href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}"> -->
+
 
 
                     <div class="img_comment">
                         <img class="card_disney" src="${film.getPicture()}">
-                        <div class="comments">
+                        <div class="comments cm" id="cm">
                             <i class="fa-solid fa-comment" id="icon"></i>
-                            <p>1,2K</p>
+                            <p style="font-size: 10px">1,2K</p>
                         </div>
                     </div>
 
-                </a>
+                <!--</a>-->
             </div>
             <h1>${film.getTitre()}...</h1>
 
@@ -267,7 +270,7 @@
                 <div>
 
 
-                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
 
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
 
@@ -288,6 +291,76 @@
 
 
 
+    <section class="main-cards">
+        <div class="card-wrapper">
+            <c:forEach var="recommendation" items="${Recommendation}">
+                <div class="cardD">
+                    <div>
+                        <a href="/Megarama_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                            <img class="card_disney" src="${recommendation.getPicture()}"/>
+                        </a>
+                    </div>
+                    <h1>${recommendation.getTitre()}...</h1>
+                    <div class="card-content">
+                        <h2>2024</h2>
+                        <h3>Movie</h3>
+                        <h3>8K</h3>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+    <div class="wrapper" id="wrapper">
+        <button class="cancel" id="cancel">X</button>
+
+        <div class="left">
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="right">
+            <form action="" method="post">
+                <label for="commentaire">Commentaire</label><br>
+                <textarea type="text" name="commmentaire" id="commentaire"></textarea><br>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
     <p id="al" style="display: none">${alert}</p>
 </section>
 
@@ -296,6 +369,20 @@
     if (al.innerHTML === "."){
         alert("The Reservation add successfully")
     }
+
+    const cmElements = document.querySelectorAll(".cm");
+    const wrapper = document.getElementById("wrapper");
+    cmElements.forEach(cm => {
+        cm.onclick = () => {
+            wrapper.style.display = "flex";
+        };
+    });
+
+    const cancel = document.getElementById("cancel");
+    cancel.onclick = () => {
+        wrapper.style.display = "none";
+    }
+
 </script>
 
 

@@ -29,10 +29,12 @@ public class testLogIn extends HttpServlet {
 
 
 
-            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/Add");
+
+            response.sendRedirect("/Megarama_BM_war_exploded/Add");
+
         } else {
 
-            response.sendRedirect("/Megarama_Cinema_BM_war_exploded/ShowFilms");
+            response.sendRedirect("/Megarama_BM_war_exploded/ShowFilms");
 
 
         }
