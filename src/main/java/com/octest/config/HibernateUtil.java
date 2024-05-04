@@ -1,6 +1,7 @@
 package com.octest.config;
 
 
+import org.hibernate.SessionBuilder;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -12,4 +13,6 @@ public class HibernateUtil {
         configuration.addAnnotatedClass(C);
         return configuration.buildSessionFactory();
     }
+
+
 }

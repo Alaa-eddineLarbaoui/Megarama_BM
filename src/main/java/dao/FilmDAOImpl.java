@@ -168,6 +168,16 @@ public class FilmDAOImpl implements FilmDAO{
     }
 
     @Override
+    public int filmsCount() throws SQLException, ClassNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public Integer filmscount() throws SQLException, ClassNotFoundException {
+        return 0;
+    }
+
+
 
 }
 

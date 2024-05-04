@@ -65,9 +65,6 @@ public class Films {
 
     private String background_Url;
 
-    public Films() {
-
-    }
 
 
     public String getPicture() {

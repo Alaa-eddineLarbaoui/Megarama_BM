@@ -1,10 +1,7 @@
 
 package com.octest.servlets;
 
-import com.octest.beans.Films;
 import dao.FilmDAOImpl;
-
-import dao.RecommendationDAOImpl;
 
 import dao.HibernateDAOImpl;
 
@@ -34,7 +31,7 @@ public class ShowFilms extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HibernateDAOImpl Hr=new HibernateDAOImpl();
-        Films flm=new Films();
+       // Films flm=new Films();
         FilmDAOImpl films= new FilmDAOImpl();
         try {
             request.setAttribute("films",films.ShowFilms());
@@ -43,7 +40,6 @@ public class ShowFilms extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
 
 //        try {
 
@@ -57,8 +53,8 @@ public class ShowFilms extends HttpServlet {
 
 
 
-        RecommendationDAOImpl ff=new RecommendationDAOImpl();
-        request.setAttribute("Recommendation",ff.ShowRecommendation());
+//        RecommendationDAOImpl ff=new RecommendationDAOImpl();
+//        request.setAttribute("Recommendation",ff.ShowRecommendation());
 
 
         FilmDAOImpl disneyfilms = new FilmDAOImpl();

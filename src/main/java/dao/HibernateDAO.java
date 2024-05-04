@@ -1,6 +1,9 @@
 package dao;
 
+import com.octest.beans.Films;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public interface HibernateDAO {
     void save(Object C) throws InstantiationException, IllegalAccessException;
@@ -10,4 +13,5 @@ public interface HibernateDAO {
     <T> Object load(Class<T> C, Integer id) throws InstantiationException, IllegalAccessException;
     <T> ArrayList<T> get(Class<T> C, Integer id) throws InstantiationException, IllegalAccessException;
     public <T> Object byTitle(Class<T> C, String title) throws InstantiationException, IllegalAccessException;
+    public <T> ArrayList<T> ShowRecommendation(Class<T> C);
 }
