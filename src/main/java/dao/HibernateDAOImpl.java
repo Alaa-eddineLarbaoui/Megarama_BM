@@ -1,6 +1,7 @@
 package dao;
 
 
+import com.octest.beans.Films;
 import com.octest.config.HibernateUtil;
 
 import org.hibernate.Session;
@@ -9,6 +10,8 @@ import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class HibernateDAOImpl implements HibernateDAO {
 
@@ -84,6 +87,24 @@ public class HibernateDAOImpl implements HibernateDAO {
         session.getTransaction().commit();
         session.close();
         return data;
+    }
+
+    @Override
+    public <T> ArrayList<T> ShowRecommendation(Class<T> C) {
+        Session session = HibernateUtil.CreateSessionFactory(C).openSession();
+        session.beginTransaction();
+        org.hibernate.Query query= session.createSQLQuery("SELECT F.genre, COUNT(*) AS nombre_de_reservations FROM Films F INNER JOIN Reservations R ON F.film_id = R.film_id GROUP BY F.genre ORDER BY nombre_de_reservations DESC");
+
+        query.setMaxResults(1);
+        String genre=query.getQueryString();
+        org.hibernate.Query query1=session.createQuery("From Films f Where genre= :genre");
+        query1.setParameter("genre", genre);
+        ArrayList<Films> films = (ArrayList<Films>) query.list();
+        session.getTransaction().commit();
+        session.close();
+
+        return (ArrayList<T>) films;
+
     }
 
 
