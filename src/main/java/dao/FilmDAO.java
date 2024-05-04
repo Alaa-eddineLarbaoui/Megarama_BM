@@ -12,9 +12,10 @@ public interface FilmDAO {
     List<Films> ShowMovie(Integer id) throws SQLException, ClassNotFoundException;
     void cancelFilm(int filmId) throws SQLException, ClassNotFoundException;
     void updateFilm(Films updatedFilm) throws SQLException, ClassNotFoundException;
+    int filmsCount() throws SQLException, ClassNotFoundException;
 
 
-
+    Integer filmscount()throws SQLException, ClassNotFoundException;
 
 
     List<Films> MovieDisney() throws SQLException, ClassNotFoundException;

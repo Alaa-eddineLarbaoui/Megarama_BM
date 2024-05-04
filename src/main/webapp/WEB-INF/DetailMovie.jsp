@@ -82,15 +82,15 @@
 
                 <section class="Sec_input_reservation">
                     <div class="div_reservation">
-                        <h1 title="reservation">Réservation de Billets de Cinéma</h1>
+                        <h1 title="reservation">Booking Cinema Tickets</h1>
                         <form action="re" method="post">
                             <input type="hidden" name="film_id" value="${detail.getFilm_id()}">
-                            <label for="seats">Nombre de places :</label><br>
+                            <label for="seats">Number of places:</label><br>
                             <input type="number" id="seats" name="seats" min="1" required><br><br>
 
 
                             <div class="button_reserve">
-                                <input type="submit" value="Réserver">
+                                <input type="submit" value="To book">
                             </div>
                         </form>
 
