@@ -1,8 +1,10 @@
 
 package com.octest.servlets;
 
+import com.octest.beans.Films;
 import dao.FilmDAOImpl;
 
+import dao.HibernateDAO;
 import dao.HibernateDAOImpl;
 
 
@@ -30,27 +32,18 @@ public class ShowFilms extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HibernateDAOImpl Hr=new HibernateDAOImpl();
-       // Films flm=new Films();
+        HibernateDAO Hr=new HibernateDAOImpl();
+        Films flm=new Films();
         FilmDAOImpl films= new FilmDAOImpl();
-        try {
-            request.setAttribute("films",films.ShowFilms());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-//        try {
-
-           // request.setAttribute("films", Hr.show(Films.class ,flm));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
 
 
+       try {
+
+            request.setAttribute("films", Hr.show(Films.class));
+
+        } catch (InstantiationException | IllegalAccessException e) {
+           throw new RuntimeException(e);
+       }
 
 
 //        RecommendationDAOImpl ff=new RecommendationDAOImpl();
