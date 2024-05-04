@@ -1,11 +1,13 @@
 
 package com.octest.servlets;
 
+import com.octest.beans.Films;
 import dao.FilmDAOImpl;
 
 import dao.HibernateDAOImpl;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -31,7 +33,7 @@ public class ShowFilms extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HibernateDAOImpl Hr=new HibernateDAOImpl();
-       // Films flm=new Films();
+        Films flm=new Films();
         FilmDAOImpl films= new FilmDAOImpl();
         try {
             request.setAttribute("films", films.ShowFilms());
@@ -41,17 +43,19 @@ public class ShowFilms extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        HibernateDAOImpl hh=new HibernateDAOImpl();
 
-//        try {
+
+        try {
+            request.setAttribute("re",hh.ShowRecommendation());
 
            // request.setAttribute("films", Hr.show(Films.class ,flm));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
 
-
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
 
 
 //        RecommendationDAOImpl ff=new RecommendationDAOImpl();

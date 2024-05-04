@@ -16,6 +16,19 @@
 </head>
 
 <body class="body">
+<div class="preloader">
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span>Loading</span>
+    </div>
+
+
+</div>
 
 <main class="main">
     <div class=" overlay overlay2"></div>
@@ -78,6 +91,7 @@
                     <input type="hidden" id="ratingInput" name="rating" value="0">
                     <input type="submit" value="Submit" style="display: none;">
                     </form>
+
 
                 </div>
 
@@ -171,6 +185,11 @@
         });
 
 
+    const preLoader = document.querySelector(".preloader");
+
+    window.addEventListener("load", function () {
+        preLoader.style.display = "none";
+    });
 </script>
 </body>
 </html>
