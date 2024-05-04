@@ -1,6 +1,8 @@
 package com.octest.servlets;
 
+import com.octest.beans.Reservations;
 import dao.FilmDAOImpl;
+import dao.HibernateDAOImpl;
 import dao.ReserveDAOImpl;
 
 import javax.servlet.*;
@@ -20,23 +22,19 @@ public class ReserverMovie extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HibernateDAOImpl hi = new HibernateDAOImpl();
 
+        Integer filmId = Integer.valueOf(request.getParameter("film_id"));
+        Integer Tickets = Integer.valueOf(request.getParameter("seats"));
+        Reservations rev = new Reservations(filmId, Tickets);
+        hi.save(rev);
 
-        Integer filmId=Integer.valueOf(request.getParameter("film_id"));
-        Integer Tickets=Integer.valueOf(request.getParameter("seats"));
-        ReserveDAOImpl reserve =new ReserveDAOImpl();
-        try {
-            reserve.ReserveMovie(filmId,Tickets);
-            request.setAttribute("alert" , ".");
-
-        } catch (ClassNotFoundException e) {
-
-            e.printStackTrace();
-        } catch (SQLException e) {
+        request.setAttribute("alert", ".");
 
 
 
-        }
+
+
 
 
         FilmDAOImpl r=new FilmDAOImpl();
