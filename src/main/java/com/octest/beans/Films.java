@@ -62,6 +62,21 @@ public class Films {
     private String synopsis;
     private String trailler_url;
 
+    public Films(Integer film_id, String notation) {
+        this.film_id=film_id;
+        this.notation = notation;
+    }
+
+    private String notation;
+
+
+    public String getNotation() {
+        return notation;
+    }
+
+    public void setNotation(String notation) {
+        this.notation = notation;
+    }
 
     private String background_Url;
 

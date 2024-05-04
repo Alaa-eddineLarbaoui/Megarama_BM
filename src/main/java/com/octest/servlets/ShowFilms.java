@@ -36,7 +36,8 @@ public class ShowFilms extends HttpServlet {
         Films flm=new Films();
         FilmDAOImpl films= new FilmDAOImpl();
         try {
-            request.setAttribute("films",films.ShowFilms());
+            request.setAttribute("films", films.ShowFilms());
+            request.setAttribute("notations",films.getNotation());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
@@ -71,6 +72,8 @@ public class ShowFilms extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/Acceuil.jsp").forward(request, response);
     }
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 

@@ -10,7 +10,9 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style><%@ include file="MovieDetails.css"%></style>
+
 </head>
 
 <body class="body">
@@ -76,6 +78,19 @@
                     <div class="date_rating">
                         <p class="time">${detail.getDuration()} minutes</p>
                     </div>
+
+                    <form id="ratingForm" action="Notation" method="post">
+                        <input type="hidden" name="film_id" value="${detail.getFilm_id()}">
+                    <div class="rating" data-rating="0">
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <input type="hidden" id="ratingInput" name="rating" value="0">
+                    <input type="submit" value="Submit" style="display: none;">
+                    </form>
 
 
                 </div>
@@ -147,6 +162,29 @@
 
 </main>
 <script>
+        const ratingStars = document.querySelectorAll(".rating span");
+        const ratingValue = document.querySelector(".rating").getAttribute("data-rating");
+
+        ratingStars.forEach(function(star, index) {
+            star.addEventListener("click", function() {
+                const rating = ratingStars.length - index ;
+                document.querySelector(".rating").setAttribute("data-rating",rating);
+                document.getElementById("ratingInput").value = rating;
+                document.getElementById("ratingForm").submit();
+                document.getElementById("ratingForm").addEventListener("submit", function(event){
+                    event.preventDefault();
+                });
+                for (let i = 0; i < ratingStars.length; i++) {
+                    if (i < index) {
+                        ratingStars[i].id="";
+                    } else {
+                        ratingStars[i].id="checked";
+                    }
+                }
+            });
+        });
+
+
     const preLoader = document.querySelector(".preloader");
 
     window.addEventListener("load", function () {

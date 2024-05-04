@@ -15,7 +15,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><%@ include file="style.css"%></style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 
@@ -151,9 +150,7 @@
             <div class="search-img">
 
 
-
                 <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
-
 
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
@@ -223,7 +220,6 @@
         <div class="cardD">
             <div>
 
-
            <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
 
@@ -242,7 +238,15 @@
             <div class="card-content">
                 <h2>2024</h2>
                 <h3>Movie</h3>
-                <h3>8K</h3>
+                <h3>
+                    <c:forEach var="notation" items="${notations}">
+                        <c:choose>
+                            <c:when test="${film.getFilm_id().equals(notation.getFilm_id())}">${notation.getNotation()}</c:when>
+                            <c:otherwise>0</c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <svg fill="gold" width="16px" height="16px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"></path> </g></svg>
+                </h3>
             </div>
         </div>
     </c:forEach>
