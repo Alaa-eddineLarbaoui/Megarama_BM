@@ -66,7 +66,15 @@ public class Reaction {
 
     public Reaction() {
     }
-@Id
+
+    public Reaction( Integer idUserR, Integer idFilm,String Commentaire,Integer notation) {
+        this.IdUserR = idUserR;
+        this.idFilm = idFilm;
+        this.Commentaire = Commentaire;
+        this.Notation = notation;
+    }
+
+    @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReaction;
     private String Commentaire;

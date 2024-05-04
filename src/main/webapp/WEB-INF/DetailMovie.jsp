@@ -65,6 +65,8 @@
                     <div class="date_rating">
                         <p class="time">${detail.getDuration()} minutes</p>
                     </div>
+
+                    <form id="ratingForm" action="Notation" method="post">
                     <div class="rating" data-rating="0">
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
@@ -72,6 +74,10 @@
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </div>
+                    <input type="hidden" id="ratingInput" name="rating" value="0">
+                    <input type="submit" value="Submit" style="display: none;">
+                    </form>
+
                 </div>
 
                 <section class="Sec_input_reservation">
@@ -146,17 +152,24 @@
 
         ratingStars.forEach(function(star, index) {
             star.addEventListener("click", function() {
-                const rating = index + 1;
+                const rating = ratingStars.length - index ;
                 document.querySelector(".rating").setAttribute("data-rating",rating);
-                for (let i = 0; i < ratingStars.length; i--) {
-                    if (i < rating) {
-                        ratingStars[i].id="checked";
-                    } else {
+                document.getElementById("ratingInput").value = rating;
+                document.getElementById("ratingForm").submit();
+                document.getElementById("ratingForm").addEventListener("submit", function(event){
+                    event.preventDefault();
+                });
+                for (let i = 0; i < ratingStars.length; i++) {
+                    if (i < index) {
                         ratingStars[i].id="";
+                    } else {
+                        ratingStars[i].id="checked";
                     }
                 }
             });
         });
+
+
 </script>
 </body>
 </html>
