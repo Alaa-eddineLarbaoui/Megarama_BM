@@ -187,7 +187,7 @@
 
     </div>
     <div class="wrapper" id="wrapper">
-        <button class="cancel" id="cancel">X</button>
+        <button class="cancel" idf="cancel">X</button>
 
         <div class="left">
             <c:forEach var="commentaires" items="${commentaires}">

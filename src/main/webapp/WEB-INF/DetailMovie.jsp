@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style><%@ include file="MovieDetails.css"%></style>
 
+
 </head>
 
 <body class="body">
@@ -44,7 +45,9 @@
                           d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
                 <input class="search" type="text" placeholder="Search ">
-                <div class="light_darkmode"></div>
+                <div onclick="changerImage()"  class="light_darkmode" style="background-image: url('https://i.ibb.co/VW5vNMP/soleil.png');">
+
+                </div>
             </nav>
         </div>
         <c:forEach items="${detai}" var="detail">
@@ -183,13 +186,27 @@
                 }
             });
         });
-
-
+        const lightDarkmode = document.querySelector(".light_darkmode");
     const preLoader = document.querySelector(".preloader");
 
     window.addEventListener("load", function () {
         preLoader.style.display = "none";
     });
+        lightDarkmode.addEventListener("click", function () {
+            document.body.classList.toggle("light");
+
+            if (document.body.classList.contains(`light`)) {
+                localStorage.setItem(`theme`, `light`);
+            } else {
+                localStorage.setItem(`theme`, `dark`);
+            }
+        });
+        function changerImage() {
+            var div = document.querySelector('.light_darkmode');
+
+            var nouvelleImage = "https://i.ibb.co/BP99jSr/soleil-1.png";
+            div.style.backgroundImage = "url('" + nouvelleImage + "')";
+        }
 </script>
 </body>
 </html>
