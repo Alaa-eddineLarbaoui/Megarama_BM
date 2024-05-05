@@ -16,6 +16,7 @@
         <junit.version>5.9.2</junit.version>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>javax.enterprise</groupId>
@@ -27,11 +28,15 @@
         <artifactId>javax.ejb-api</artifactId>
         <version>3.2.2</version>
         <scope>provided</scope>
+
     </dependency><dependency>
         <groupId>javax.mvc</groupId>
         <artifactId>javax.mvc-api</artifactId>
         <version>1.0.0</version>
     </dependency><dependency>
+
+
+
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
         <version>4.0.1</version>

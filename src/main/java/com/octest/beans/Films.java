@@ -1,6 +1,6 @@
 package com.octest.beans;
 
-import jdk.Exported;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
