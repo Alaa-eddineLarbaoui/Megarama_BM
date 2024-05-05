@@ -58,25 +58,34 @@
     </style>
 </head>
 <body class="bodyy">
+ 
 
 
 
 
 
-<section class="main-swiper">
-    <div class="imgNom">
-        <div class="imguser"></div>
+<section class="main-body">
+    <div class="bottom1"></div>
+    <section class="main-swiper">
+        <div class="imgNom">
+            <div class="imguser"><img src="https://img.freepik.com/photos-gratuite/portrait-homme-riant_23-2148859448.jpg?w=740&t=st=1714929129~exp=1714929729~hmac=a58fca18eb5f7c5ab73091c5cb8fae48455dbb509f4651685851d9050bf67158" width="100%" /></div>
 
-        <div class="username">
-            <h1>Salma bee</h1>
-            <p>Book Your Favorite Movie</p>
-            <div onclick="changerImage()"  class="light_darkmode" style="background-image: url('https://i.ibb.co/VW5vNMP/soleil.png');">
-
+            <div class="username">
+                <h1>Salma bee</h1>
+                <p>Book Your Favorite Movie</p>
+ 
             </div>
         </div>
-    </div>
-    <div class="favoris"></div>
-</section>
+        <div class="favoris">
+            <button><i class="fa-regular fa-bookmark"></i></button>
+            <button><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+    </section>
+
+    <form action="" method="POST" id="formSearch">
+        <input type="text" placeholder="Search by Title " name="search" id="search"/> <br>
+        <button type="submit" id="btn-search"><i class="fa-brands fa-searchengin"></i></button>
+    </form>
 
     <c:if test="${filmSe.size() == 0 }">
         <div class="card-search">
@@ -113,28 +122,29 @@
     </c:forEach>
 
 
-<div class="titre-cards">
-    <h1>Recommandations de films</h1>
-</div>
-
-<section class="main-cards">
-    <div class="card-wrapper">
-        <c:forEach var="recommendation" items="${re}">
-            <div class="cardD">
-                <div>
-                    <a href="/demo_war_exploded/detail?Id=${recommendation.getFilm_id()}">
-                        <img class="card_disney" src="${recommendation.getPicture()}"/>
-                    </a>
-                </div>
-                <h1>${recommendation.getTitre()}...</h1>
-                <div class="card-content">
-                    <h2>2024</h2>
-                    <h3>Movie</h3>
-                    <h3>8K</h3>
-                </div>
-            </div>
-        </c:forEach>
+    <div class="titre-cards">
+        <h1>Recommandations de films</h1>
     </div>
+
+    <section class="main-cards">
+        <div class="card-wrapper">
+            <c:forEach var="recommendation" items="${re}">
+                <div class="cardD">
+                    <div>
+                        <a href="/demo_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                            <img class="card_disney" src="${recommendation.getPicture()}"/>
+                        </a>
+                    </div>
+                    <h1>${recommendation.getTitre()}...</h1>
+                    <div class="card-content">
+                        <h2>2024</h2>
+                        <h3>Movie</h3>
+                        <h3>8K</h3>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
 </section>
 
 <div class="titre-cards">
@@ -159,7 +169,9 @@
                         </a>
 
 
-
+                        <div class="comments1">
+                            <i class="fa-regular fa-bookmark" ></i>
+                        </div>
 
 
                         <div class="comments cm" id="cm">
@@ -266,6 +278,24 @@
     cancel.onclick = () => {
         wrapper.style.display = "none";
     }
+    const com = document.querySelectorAll(".comments1")
+    let check = true;
+    com.forEach(cm => {
+        cm.onclick = () => {
+            if (check){
+                cm.style.color = "gold";
+                cm.style.background = "black";
+                check = false;
+            }
+            else {
+                cm.style.color = "white";
+                cm.style.background = "#d5abff";
+                check = true;
+            }
+
+        };
+    });
+
 
 
 
