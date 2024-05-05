@@ -36,27 +36,8 @@
             background: #151728;
         }
 
-        swiper-container {
-            width: 100%;
-            height: 600px;
-        }
 
-        swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
-        }
-
-        swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-        }
         header{
             display: flex;
             flex-direction: row;
@@ -77,66 +58,21 @@
 </head>
 <body>
 
-<header>
 
-    <div class="headr">
-        <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="100%" /></div>
-        <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
-            <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
-
-                <form method="post" action="search" >
-
-                    <div style="display: flex; flex-direction: row; gap:10px; padding-top: 5px;">
-                        <input class="search col-md-4" type="text" placeholder="Search" name="title">
-
-                        <button class="btn btn-outline-light col-md-3" type="submit">Chercher</button>
-
-                    </div>
-
-
-
-                </form>
-            </nav>
-        </div>
-    </div>
-</header>
 
 
 
 <section class="main-swiper">
-    <swiper-container
-            class="mySwiper"
-            direction="vertical"
-            pagination="true"
-            pagination-clickable="true"
-            autoplay="true"
-    >
-        <swiper-slide
-        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://i.ibb.co/THmw4K1/3.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://i.ibb.co/m8xH1v2/2.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://i.ibb.co/wLwL9Yp/1.jpg"
-        /></swiper-slide>
+    <div class="imgNom">
+        <div class="imguser"></div>
 
-    </swiper-container>
-
-    <div class="Smain">
-
-
+        <div class="username">
+            <h1>Salma bee</h1>
+            <p>Book Your Favorite Movie</p>
+        </div>
     </div>
-    <div class="Smain2">
-
-    </div>
-    <div class="Smain3">
-
-    </div>
-
+    <div class="favoris"></div>
+</section>
 
     <c:if test="${filmSe.size() == 0 }">
         <div class="card-search">
@@ -172,6 +108,29 @@
         </div>
     </c:forEach>
 
+
+<div class="titre-cards">
+    <h1>Recommandations de films</h1>
+</div>
+
+<section class="main-cards">
+    <div class="card-wrapper">
+        <c:forEach var="recommendation" items="${re}">
+            <div class="cardD">
+                <div>
+                    <a href="/demo_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                        <img class="card_disney" src="${recommendation.getPicture()}"/>
+                    </a>
+                </div>
+                <h1>${recommendation.getTitre()}...</h1>
+                <div class="card-content">
+                    <h2>2024</h2>
+                    <h3>Movie</h3>
+                    <h3>8K</h3>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </section>
 
 <div class="titre-cards">
@@ -188,11 +147,17 @@
 
 
 
+
                     <div class="img_comment">
                         <a  href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                         <img class="card_disney" src="${film.getPicture()}">
                         </a>
+
+
+
+
+
                         <div class="comments cm" id="cm">
                             <i class="fa-solid fa-comment" id="icon"></i>
                             <p style="font-size: 10px">1,2K</p>
@@ -209,8 +174,35 @@
                     <h3>8K</h3>
                 </div>
             </div>
-        </c:forEach>
+
+
     </div>
+    <div class="wrapper" id="wrapper">
+        <button class="cancel" id="cancel">X</button>
+
+        <div class="left">
+            <c:forEach var="commentaires" items="${commentaires}">
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>${commentaires.getCommentaire()}</p>
+                </div>
+            </div>
+            </c:forEach>
+
+        </div>
+
+        <div class="right">
+            <form action="ReactionCommentaire" method="post">
+                <label for="commentaire">Commentaire</label><br>
+               <input type="hidden"  name="idFilm" value="${film.getFilm_id()}">
+                <textarea type="text" name="commmentaire" id="commentaire"></textarea><br>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+    </c:forEach>
 
 
 </section>
@@ -227,7 +219,7 @@
                 <div>
 
 
-                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
 
                         <img class="card_disney" src="${Disneys.getPicture()}"/>
 
@@ -246,79 +238,9 @@
         </c:forEach>
     </div>
 
-    <div class="titre-cards">
-        <h1>Recommandations de films</h1>
-    </div>
 
-    <section class="main-cards">
-        <div class="card-wrapper">
-            <c:forEach var="recommendation" items="${re}">
-                <div class="cardD">
-                    <div>
-                        <a href="/Megarama_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
-                            <img class="card_disney" src="${recommendation.getPicture()}"/>
-                        </a>
-                    </div>
-                    <h1>${recommendation.getTitre()}...</h1>
-                    <div class="card-content">
-                        <h2>2024</h2>
-                        <h3>Movie</h3>
-                        <h3>8K</h3>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-    </section>
-    <div class="wrapper" id="wrapper">
-        <button class="cancel" id="cancel">X</button>
 
-        <div class="left">
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
-                </div>
-            </div>
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
-                </div>
-            </div>
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
-                </div>
-            </div>
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
-                </div>
-            </div>
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
-                </div>
-            </div>
 
-        </div>
-
-        <div class="right">
-            <form action="" method="post">
-                <label for="commentaire">Commentaire</label><br>
-                <textarea type="text" name="commmentaire" id="commentaire"></textarea><br>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-    </div>
     <p id="al" style="display: none">${alert}</p>
 </section>
 

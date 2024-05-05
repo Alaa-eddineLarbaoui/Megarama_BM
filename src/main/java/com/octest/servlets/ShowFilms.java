@@ -2,6 +2,8 @@
 package com.octest.servlets;
 
 import com.octest.beans.Films;
+import com.octest.beans.Reaction;
+import com.octest.beans.User;
 import dao.FilmDAOImpl;
 
 import dao.HibernateDAO;
@@ -18,8 +20,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-
+import static java.lang.Integer.valueOf;
 
 
 @WebServlet("/ShowFilms")
@@ -35,8 +38,10 @@ public class ShowFilms extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HibernateDAO Hr=new HibernateDAOImpl();
-        Films flm=new Films();
-        FilmDAOImpl films= new FilmDAOImpl();
+
+
+
+
 
 
        try {
@@ -47,8 +52,7 @@ public class ShowFilms extends HttpServlet {
            throw new RuntimeException(e);
        }
 
-      //  HibernateDAOImpl Hr=new HibernateDAOImpl();
-      //  Films flm=new Films();
+
         FilmDAOImpl filmss= new FilmDAOImpl();
         try {
             request.setAttribute("films", filmss.ShowFilms());
@@ -64,7 +68,7 @@ public class ShowFilms extends HttpServlet {
         try {
             request.setAttribute("re",hh.ShowRecommendation());
 
-           // request.setAttribute("films", Hr.show(Films.class ,flm));
+
 
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
@@ -72,10 +76,6 @@ public class ShowFilms extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-
-
-//        RecommendationDAOImpl ff=new RecommendationDAOImpl();
-//        request.setAttribute("Recommendation",ff.ShowRecommendation());
 
 
         FilmDAOImpl disneyfilms = new FilmDAOImpl();
