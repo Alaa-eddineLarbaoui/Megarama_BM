@@ -6,13 +6,13 @@
     <session-factory>
 
 
-        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/Megarama</property>
+        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/megarama</property>
 
 
         <property name = "hibernate.connection.username">root</property>
 
 
-        <property name = "hibernate.connection.password">alaa2001..</property>
+        <property name = "hibernate.connection.password"></property>
 
 
         <property name = "hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>

@@ -2,6 +2,7 @@ package dao;
 
 
 import com.octest.beans.Films;
+import com.octest.beans.Reaction;
 import com.octest.config.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -111,10 +112,20 @@ public class HibernateDAOImpl implements HibernateDAO {
 
         session.getTransaction().commit();
         session.close();
-        System.out.println(films);
         return films;
     }
 
+    @Override
+    public ArrayList<Reaction> ReactionCommentaire(Integer id) throws InstantiationException, IllegalAccessException {
+        Session session = HibernateUtil.CreateSessionFactory(Reaction.class).openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("FROM Reaction R WHERE R.idFilm = :id");
+        query.setParameter("id", id);
+        ArrayList<Reaction> Commentaire = (ArrayList<Reaction>) query.list();
+        session.getTransaction().commit();
+        session.close();
+        return Commentaire;
+    }
 
 
 }
