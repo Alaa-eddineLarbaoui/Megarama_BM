@@ -13,17 +13,9 @@
     <style><%@ include file="log.css"%></style>
 </head>
 <body>
-<header>
-
-    <div class="headr">
+    <div class="header">
         <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="100%" /></div>
-        <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
-            <nav style="display: flex; flex-direction: row; width: 600px;" class="navContainer movieDetailnavContainer row">
-
-            </nav>
-        </div>
     </div>
-</header>
 <section>
 
 <div class="login-box">
