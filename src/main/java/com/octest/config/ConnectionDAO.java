@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionDAO {
-    private static final String url = "jdbc:mysql://localhost:3306/ormtest";
+    private static final String url = "jdbc:mysql://localhost:3306/megarama";
     private static final String username = "root";
     private static final String password = "";
 

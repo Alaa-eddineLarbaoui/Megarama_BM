@@ -21,6 +21,7 @@
         <property name = "hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="com.octest.beans.Reaction" />
+        <mapping class="com.octest.beans.Films" />
 
     </session-factory>
 </hibernate-configuration>

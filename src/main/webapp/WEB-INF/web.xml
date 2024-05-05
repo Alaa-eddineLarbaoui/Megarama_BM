@@ -47,6 +47,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Logte</servlet-name>
+        <servlet-class>com.octest.servlets.Logte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logte</servlet-name>
+        <url-pattern>/Log</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>MovieDetails</servlet-name>
         <servlet-class>com.octest.servlets.MovieDetails</servlet-class>
     </servlet>

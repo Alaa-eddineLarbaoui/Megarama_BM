@@ -39,7 +39,6 @@ html {
 }
 
 .main {
-    display: flex;
     position: relative;
 }
 
@@ -556,7 +555,7 @@ body.light .menu ul li.hovered a ::after {
 .Sec_input_reservation {
     background-color: #2d3037;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
     margin-top: -20px;
     width: 30%;
@@ -610,6 +609,45 @@ body.light .menu ul li.hovered a ::after {
     background-color: #0056b3;
 }
 
+.preloader{
+    background-color: #363636;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.wrapper{
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
+    left: 15%;
+    transform-origin: 50%;
+    animation: circle .5s alternate infinite ease;
+}
+.wrapper span {
+    position: absolute;
+    top: 75px;
+    font-family: 'Lato';
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: #fff;
+    left: 15%;
+}
+
 /*
 .Sec_input_reservation{
     display: flex;
@@ -622,7 +660,29 @@ body.light .menu ul li.hovered a ::after {
 .div_reservation{
     background-color: white;
 */
+/*Annotation*/
+#checked {
+    color: gold;
+}
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 6px;
+}
 
+.rating > span {
+    display: inline-block;
+    width: 1.1em;
+    color: #ccc;
+}
+.rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+      color: gold;
+    cursor: pointer;
+  }
 
 
 

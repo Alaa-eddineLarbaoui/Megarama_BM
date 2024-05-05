@@ -28,10 +28,14 @@ public class testLogIn extends HttpServlet {
         if (user != null && user.getType().equals("admin")) {
 
 
+
+
             response.sendRedirect("/demo_war_exploded/Add");
+
         } else {
 
             response.sendRedirect("/demo_war_exploded/ShowFilms");
+
 
         }
     }

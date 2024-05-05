@@ -108,34 +108,21 @@
             direction="vertical"
             pagination="true"
             pagination-clickable="true"
+            autoplay="true"
     >
         <swiper-slide
         ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images7.alphacoders.com/134/thumb-1920-1343598.png"
+        ><img src="https://i.ibb.co/THmw4K1/3.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images2.alphacoders.com/491/thumb-1920-491173.jpg"
+        ><img src="https://i.ibb.co/m8xH1v2/2.jpg"
         /></swiper-slide>
         <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/descendants-the-rise-of-red-rita-ora_bmdram6UmZqaraWkpJRobWllrWdma2U.jpg"
+        ><img src="https://i.ibb.co/wLwL9Yp/1.jpg"
         /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images.wallpapersden.com/image/download/disney-the-marvels-5k_bmZraWeUmZqaraWkpJRqZmdlrWdtbWU.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
-        <swiper-slide
-        ><img src="https://images5.alphacoders.com/496/thumb-1920-496726.jpg"
-        /></swiper-slide>
+
     </swiper-container>
 
     <div class="Smain">
@@ -148,11 +135,23 @@
     <div class="Smain3">
 
     </div>
-<c:forEach var="filmS" items="${filmSe}">
-    <div class="card-search">
+
+
+    <c:if test="${filmSe.size() == 0 }">
+        <div class="card-search">
+            <div class="Scontent">
+                <h1>No results found.</h1>
+            </div>
+        </div>
+    </c:if>
+
+    <c:forEach var="filmS" items="${filmSe}">
+        <div class="card-search">
             <div class="search-img">
 
-                <a href="/demo_war_exploded/detail?Id=${filmS.getFilm_id()}">
+
+                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
+
                     <img src="${filmS.getPicture()}" width="90%" />
                     </a>
 
@@ -167,9 +166,48 @@
                     <h2>2024</h2>
                 </div>
             </div>
-    </div>
-</c:forEach>
+        </div>
+    </c:forEach>
+
 </section>
+
+
+<div class="titre-cards">
+    <h1>Recommandations de films</h1>
+</div>
+
+<section class="main-cards">
+    <div class="card-wrapper">
+        <c:forEach var="recommendation" items="${re}">
+            <div class="cardD">
+                <div>
+                    <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                        <img class="card_disney" src="${recommendation.getPicture()}"/>
+                    </a>
+                </div>
+                <h1>${recommendation.getTitre()}...</h1>
+                <div class="card-content">
+                    <h2>2024</h2>
+                    <h3>Movie</h3>
+                    <h3>8K</h3>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="titre-cards">
     <h1>Now Playing Movies</h1>
@@ -181,17 +219,37 @@
     <c:forEach var="film" items="${films}">
         <div class="cardD">
             <div>
-           <a href="/demo_war_exploded/detail?Id=${film.getFilm_id()}">
-                    <img class="card_disney" src="${film.getPicture()}">
 
-                </a>
+
+
+          <!-- <a href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}"> -->
+
+
+
+                    <div class="img_comment">
+                        <img class="card_disney" src="${film.getPicture()}">
+                        <div class="comments cm" id="cm">
+                            <i class="fa-solid fa-comment" id="icon"></i>
+                            <p style="font-size: 10px">1,2K</p>
+                        </div>
+                    </div>
+
+                <!--</a>-->
             </div>
             <h1>${film.getTitre()}...</h1>
 
             <div class="card-content">
                 <h2>2024</h2>
                 <h3>Movie</h3>
-                <h3>8K</h3>
+                <h3>
+                    <c:forEach var="notation" items="${notations}">
+                        <c:choose>
+                            <c:when test="${film.getFilm_id().equals(notation.getFilm_id())}">${notation.getNotation()}</c:when>
+                            <c:otherwise>0</c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <svg fill="gold" width="16px" height="16px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"></path> </g></svg>
+                </h3>
             </div>
         </div>
     </c:forEach>
@@ -210,8 +268,12 @@
         <c:forEach var="Disneys" items="${Disneys}">
             <div class="cardD">
                 <div>
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+
+
+                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+
                     <img class="card_disney" src="${Disneys.getPicture()}"/>
+
                     </a>
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
@@ -226,15 +288,103 @@
             </div>
         </c:forEach>
     </div>
+
+
+
+    <section class="main-cards">
+        <div class="card-wrapper">
+            <c:forEach var="recommendation" items="${Recommendation}">
+                <div class="cardD">
+                    <div>
+                        <a href="/Megarama_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                            <img class="card_disney" src="${recommendation.getPicture()}"/>
+                        </a>
+                    </div>
+                    <h1>${recommendation.getTitre()}...</h1>
+                    <div class="card-content">
+                        <h2>2024</h2>
+                        <h3>Movie</h3>
+                        <h3>8K</h3>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+    <div class="wrapper" id="wrapper">
+        <button class="cancel" id="cancel">X</button>
+
+        <div class="left">
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>Cette film est tree belle pour les couples et aussi les celebataires</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="right">
+            <form action="" method="post">
+                <label for="commentaire">Commentaire</label><br>
+                <textarea type="text" name="commmentaire" id="commentaire"></textarea><br>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
     <p id="al" style="display: none">${alert}</p>
 </section>
 
-    <script>
-        const al = document.getElementById("al");
-        if (al.innerHTML === "."){
-            alert("The Reservation add successfully")
-        }
-    </script>
+<script>
+    const al = document.getElementById("al");
+    if (al.innerHTML === "."){
+        alert("The Reservation add successfully")
+    }
+
+    const cmElements = document.querySelectorAll(".cm");
+    const wrapper = document.getElementById("wrapper");
+    cmElements.forEach(cm => {
+        cm.onclick = () => {
+            wrapper.style.display = "flex";
+        };
+    });
+
+    const cancel = document.getElementById("cancel");
+    cancel.onclick = () => {
+        wrapper.style.display = "none";
+    }
+
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

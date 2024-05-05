@@ -157,10 +157,10 @@
     <nav class="navbar" style="display: flex; justify-content: space-around" >
         <div class="logo"><img src="https://i.ibb.co/jDDfy4M/Black-White-Simple-Monoline-Hotel-Logo.png" width="20%" height="100%" /></div>
         <ul>
-            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Add film</a></li>
-            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Cancel film</a></li>
-            <li><a href="http://localhost:8080/Megarama_BM_war_exploded/update"><i class="fas fa-plus-circle"></i> Update film</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/showFilm"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/Add"><i class="fas fa-plus-circle"></i> Add film</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/cancel"><i class="fas fa-times-circle"></i> Cancel film</a></li>
+            <li><a href="http://localhost:8080/Megarama_Cinema_BM_war_exploded/update"><i class="fas fa-plus-circle"></i> Update film</a></li>
         </ul>
     </nav>
 
@@ -178,9 +178,9 @@
             <label for="film_synopsis">Synopsis :</label>
             <input type="text" id="film_synopsis" name="synopsis" required><br>
             <label for="background_Url">Background URL:</label><br>
-            <input type="text" id="background" name="background_Url"  required><br>
+            <input type="text" id="background_Url" name="background_Url"  required><br>
             <label for="trailler_url">Trailer URL:</label><br>
-            <input type="text" id="trailler" name="trailler_url"  required><br>
+            <input type="text" id="trailler_url" name="trailler_url"  required><br>
             <label for="film_picture">URL de l'image :</label>
             <input type="text" id="film_picture" name="picture" required><br>
             <input onclick="filmAdded()" type="submit" value="Ajouter le film">
