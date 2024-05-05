@@ -47,12 +47,12 @@ public class ShowFilms extends HttpServlet {
            throw new RuntimeException(e);
        }
 
-        HibernateDAOImpl Hr=new HibernateDAOImpl();
-        Films flm=new Films();
-        FilmDAOImpl films= new FilmDAOImpl();
+      //  HibernateDAOImpl Hr=new HibernateDAOImpl();
+      //  Films flm=new Films();
+        FilmDAOImpl filmss= new FilmDAOImpl();
         try {
-            request.setAttribute("films", films.ShowFilms());
-            request.setAttribute("notations",films.getNotation());
+            request.setAttribute("films", filmss.ShowFilms());
+            request.setAttribute("notations",filmss.getNotation());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

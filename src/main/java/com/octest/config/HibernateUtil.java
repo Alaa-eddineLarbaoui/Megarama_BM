@@ -12,6 +12,7 @@ public class HibernateUtil {
         configuration.configure("hibernate.cfg.xml");
         configuration.addAnnotatedClass(C);
         return configuration.buildSessionFactory();
+
     }
 
 
