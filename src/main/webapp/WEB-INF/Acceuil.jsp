@@ -205,6 +205,7 @@
                 <h2>2024</h2>
                 <h3>Movie</h3>
                 <h3>8K</h3>
+                <input type="submit" value="Ajouter aux favoris" />
                 <a href="#" class="save-icon"><i class="bi bi-save"></i></a>
             </div>
 
@@ -238,6 +239,7 @@
                     <h2>2024</h2>
                     <h3>Movie</h3>
                     <h3>8K</h3>
+                    <input type="submit" value="Ajouter aux favoris" />
                     <a href="#" class="save-icon" id="saveFilm"><i class="bi bi-save"></i></a>
 
                 </div>

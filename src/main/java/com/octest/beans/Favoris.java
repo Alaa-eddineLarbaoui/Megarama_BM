@@ -5,10 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+
 public class Favoris {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer favoris_id;
     private Integer film_id;
     private Integer idUser;
@@ -20,9 +18,6 @@ public class Favoris {
         this.idUser = idUser;
     }
 
-    public Favoris() {
-
-    }
 
     public Integer getFavoris_id() {
         return favoris_id;
