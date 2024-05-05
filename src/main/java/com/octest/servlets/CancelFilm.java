@@ -30,6 +30,7 @@ public class CancelFilm extends HttpServlet {
         int filmId = Integer.valueOf(request.getParameter("filmId"));
         try {
             filmDAO.cancelFilm(filmId);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
