@@ -89,26 +89,26 @@ public class HibernateDAOImpl implements HibernateDAO {
 
     @Override
     public <T> ArrayList<T> ShowRecommendation()throws InstantiationException, IllegalAccessException {
-//        Session session = HibernateUtil.CreateSessionFactory(Films.class).openSession();
-//        session.beginTransaction();
-//
-//
-//        Query query = session.createSQLQuery("SELECT F.genre, COUNT(*) AS nombre_de_reservations FROM Films F INNER JOIN Reservations R ON F.film_id = R.film_id GROUP BY F.genre ORDER BY nombre_de_reservations DESC");
-//
-//        query.setMaxResults(1);
-//        Object[] result = (Object[]) query.uniqueResult();
-//        String genre = (String) result[0];
-//
-//
-//        Query query1 = session.createQuery("FROM Films f WHERE f.genre = :genre");
-//        query1.setParameter("genre", genre);
-//        List<Films> films = query1.list();
-//
-//        session.getTransaction().commit();
-//        session.close();
+        Session session = HibernateUtil.CreateSessionFactory(Films.class).openSession();
+        session.beginTransaction();
 
-       // return (ArrayList<T>) films;
-return null;
+
+        Query query = session.createSQLQuery("SELECT F.genre, COUNT(*) AS nombre_de_reservations FROM Films F INNER JOIN Reservations R ON F.film_id = R.film_id GROUP BY F.genre ORDER BY nombre_de_reservations DESC");
+
+        query.setMaxResults(1);
+        Object[] result = (Object[]) query.uniqueResult();
+        String genre = (String) result[0];
+
+
+        Query query1 = session.createQuery("FROM Films f WHERE f.genre = :genre");
+        query1.setParameter("genre", genre);
+        List<Films> films = query1.list();
+
+        session.getTransaction().commit();
+        session.close();
+
+        return (ArrayList<T>) films;
+
 
     }
 
