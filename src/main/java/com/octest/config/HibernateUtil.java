@@ -11,7 +11,7 @@ public class HibernateUtil {
         try {
 
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-            configuration.addAnnotatedClass(Reaction.class);
+
 
 
 

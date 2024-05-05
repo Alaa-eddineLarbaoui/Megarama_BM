@@ -21,8 +21,7 @@ public class ReactionDAOImpl implements ReactionDAO {
 
     session.save(reaction);
         session.getTransaction().commit();
-        System.out.println(reaction);
-        System.out.println("11111111111");
+
      session.close();
 
 
@@ -30,7 +29,8 @@ public class ReactionDAOImpl implements ReactionDAO {
 
     @Override
     public List<User> findAll(User u) {
-   return null;}
+   return null;
+    }
 
 
 }
