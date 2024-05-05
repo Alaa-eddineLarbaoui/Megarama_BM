@@ -3,6 +3,7 @@ package com.octest.servlets;
 
 import com.octest.beans.Films;
 import com.octest.beans.Reaction;
+import com.octest.beans.User;
 import dao.FilmDAOImpl;
 
 import dao.HibernateDAO;
@@ -19,8 +20,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-
+import static java.lang.Integer.valueOf;
 
 
 @WebServlet("/ShowFilms")
@@ -36,9 +38,9 @@ public class ShowFilms extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HibernateDAO Hr=new HibernateDAOImpl();
-       String commentaire =request.getParameter("commmentaire");
-        Reaction rr=new Reaction();
-        rr.setCommentaire(commentaire);
+
+
+
 
 
 

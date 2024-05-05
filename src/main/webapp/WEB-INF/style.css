@@ -40,31 +40,50 @@ header{
     color: rgba(255, 255, 255, 0.67);
 }
 .main-swiper{
-    position: relative;
+    width: 90%;
+    background: rgba(66, 118, 181, 0.28);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    margin:15px auto ;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 35px ;
+    align-items: center;
+    box-shadow: 4px 4px 15px black;
+}
+.imguser{
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 100%;
+}
+.imgNom{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+}
+.favoris{
+    width: 20%;
+}
+.username{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.username > h1{
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+}
+.username > p{
+    font-size: 13px;
+    font-weight: 400;
+    color: grey;
 }
 
-
-    .swiper-container {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
 
 
