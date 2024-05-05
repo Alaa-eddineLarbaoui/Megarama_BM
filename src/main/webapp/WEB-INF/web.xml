@@ -34,7 +34,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LogIn</servlet-name>
-        <url-pattern>/LogIn</url-pattern>
+        <url-pattern>/Log</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -43,17 +43,9 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
-        <url-pattern>/SignUp</url-pattern>
+        <url-pattern>/Sign</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>Logte</servlet-name>
-        <servlet-class>com.octest.servlets.Logte</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Logte</servlet-name>
-        <url-pattern>/Log</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>MovieDetails</servlet-name>

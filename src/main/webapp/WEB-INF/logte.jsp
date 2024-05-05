@@ -27,17 +27,17 @@
 <section>
 
 <div class="login-box">
-    <form action="">
+    <form method="post" action="testLogIn">
         <h2>Login</h2>
         <div class="input-box">
             <span class="icon"><ion-icon name="mail"></ion-icon></span>
-            <input type="email" required>
+            <input type="email"   name="Email" required>
             <label>Email</label>
         </div>
 
         <div class="input-box">
             <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-            <input type="password" required>
+            <input type="password"  name="password" required>
             <label>Password</label>
         </div>
             <div class="remember-forgot">
@@ -45,8 +45,9 @@
                 <a href="#">Forgot Password?</a>
             </div>
         <button type="submit">Login</button>
+        <p style="color: red">${error}</p>
         <div class="register-link">
-            <p>Don't have an account ?<a href="#">Register</a></p>
+            <p>Don't have an account ?<a href="Sign">Register</a></p>
         </div>
 
 
