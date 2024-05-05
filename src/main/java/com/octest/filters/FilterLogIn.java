@@ -51,7 +51,7 @@ public class FilterLogIn implements Filter {
         else
         {
             request.setAttribute("error","User not found");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/LogIn.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/logte.jsp");
             dispatcher.include(request, response);
         }
     }

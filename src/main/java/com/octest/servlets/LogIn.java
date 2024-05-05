@@ -12,11 +12,11 @@ public class LogIn extends HttpServlet {
     private dao.UserDao UserDao;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/LogIn.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/logte.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/LogIn.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/logte.jsp").forward(request, response);
     }
 }

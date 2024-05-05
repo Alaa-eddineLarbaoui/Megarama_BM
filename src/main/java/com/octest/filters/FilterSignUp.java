@@ -45,7 +45,7 @@ public class FilterSignUp implements Filter {
             {
 
                 request.setAttribute("error","This email is already in use. Please try again with another email");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/SignUp.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Sign.jsp");
                 dispatcher.include(request, response);
             }
             else{
@@ -56,13 +56,13 @@ public class FilterSignUp implements Filter {
                 inserUser.setType("user");
                 UserDao.insertUser(inserUser);
                 request.setAttribute("succes","User added successfully.");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/SignUp.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Sign.jsp");
                 dispatcher.include(request, response);
             }
         }
         else{
             request.setAttribute("error","Email confirmation failed");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/SignUp.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Sign.jsp");
             dispatcher.include(request, response);
         }
     }
