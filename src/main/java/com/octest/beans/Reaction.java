@@ -1,10 +1,7 @@
 package com.octest.beans;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Reaction {
@@ -77,7 +74,9 @@ public class Reaction {
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReaction;
+    @Column(nullable = true)
     private String Commentaire;
+    @Column(nullable = true)
     private Integer Notation;
     private Integer IdUserR;
     private Integer idFilm;
