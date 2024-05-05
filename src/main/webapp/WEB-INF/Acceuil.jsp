@@ -186,18 +186,20 @@
                 <div>
 
 
-                    <!-- <a href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}"> -->
 
 
                     <div class="img_comment">
+                        <a  href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+
                         <img class="card_disney" src="${film.getPicture()}">
+                        </a>
                         <div class="comments cm" id="cm">
                             <i class="fa-solid fa-comment" id="icon"></i>
                             <p style="font-size: 10px">1,2K</p>
                         </div>
                     </div>
 
-                    <!--</a>-->
+
                 </div>
                 <h1>${film.getTitre()}...</h1>
 
