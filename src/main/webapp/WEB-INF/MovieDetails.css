@@ -789,10 +789,6 @@ body.light .bgadd {
 }
 
 
-body.light .sidenav {
-    background-color: #287bff;
-}
-
 body.light .pathh {
     fill: #ffff;
 }
@@ -806,15 +802,6 @@ body.light .path {
     fill: #646464;
 }
 
-
-
-body.light .menu_ul li:hover .path {
-    fill: #287bff;
-}
-
-body.light .menu_ul li:hover .title_span {
-    color: #287bff;
-}
 
 body.light .arrow_left {
     fill: #ffff;
@@ -833,17 +820,7 @@ body.light .title {
     color: #ffffff;
 }
 
-body.light .menu_title {
-    color: #ffff;
-}
 
-
-
-body.light .home_header {
-    color: rgb(61, 61, 61);
-    margin: 0px 90px 18px 0px;
-    font-size: 32px;
-}
 
 body.light .overlay {
     height: 100%;
@@ -852,13 +829,6 @@ body.light .overlay {
 
 }
 
-body.light .Now_playing_movies_container_title {
-    color: #353434;
-}
-
-body.light .movie_title {
-    color: #2F2F33;
-}
 
 body.light .dot2 {
     background-color: #898787;

@@ -20,6 +20,7 @@
     <title>Document</title>
 
     <style>
+
         html,
         body {
             position: relative;
@@ -56,7 +57,12 @@
         }
     </style>
 </head>
-<body>
+<body class="bodyy">
+ 
+
+
+
+
 
 <section class="main-body">
     <div class="bottom1"></div>
@@ -67,6 +73,7 @@
             <div class="username">
                 <h1>Salma bee</h1>
                 <p>Book Your Favorite Movie</p>
+ 
             </div>
         </div>
         <div class="favoris">
@@ -289,6 +296,24 @@
         };
     });
 
+
+
+
+    lightDarkmode.addEventListener("click", function () {
+        document.body.classList.toggle("light");
+
+        if (document.body.classList.contains(`light`)) {
+            localStorage.setItem(`theme`, `light`);
+        } else {
+            localStorage.setItem(`theme`, `dark`);
+        }
+    });
+    function changerImage() {
+        var div = document.querySelector('.light_darkmode');
+
+        var nouvelleImage = "https://i.ibb.co/BP99jSr/soleil-1.png";
+        div.style.backgroundImage = "url('" + nouvelleImage + "')";
+    }
 
 </script>
 
