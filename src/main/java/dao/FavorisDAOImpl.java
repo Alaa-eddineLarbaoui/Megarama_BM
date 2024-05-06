@@ -9,9 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
-import com.octest.dao.FavorisDAO;
 
-public class FavorisDAOImpl implements FavorisDAO {
+public class FavorisDAOImpl implements com.octest.dao.FavorisDAO {
     private SessionFactory sessionFactory;
 
     public FavorisDAOImpl(SessionFactory sessionFactory) {

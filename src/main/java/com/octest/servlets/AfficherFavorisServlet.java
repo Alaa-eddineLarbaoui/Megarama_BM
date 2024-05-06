@@ -1,9 +1,9 @@
 package com.octest.servlets;
 
 import com.octest.beans.Favoris;
+import com.octest.config.HibernateUtil;
 import com.octest.dao.FavorisDAO;
 import com.octest.dao.FavorisDAOImpl;
-import com.octest.config.HibernateUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
