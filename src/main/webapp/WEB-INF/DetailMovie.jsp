@@ -139,25 +139,22 @@
 
 
         </section>
-        <div class="div_reservation">
-            <h1 title="reservation">Commentaires</h1>
-            <form action="ReactionCommentaire" method="post"> <!-- Utilisez le nom correct du servlet -->
-                <input type="hidden" name="film_id" value="${detail.getFilm_id()}">
-                <label for="seat">Commenter :</label><br>
-                <input type="text" id="seat" name="Commentaire" required><br><br>
-
-                <label for="seatt">Notation :</label><br>
-                <input type="Number" id="seatt" name="Notation" required><br><br>
-
-                <div class="button_reserve">
-                    <input type="submit" value="Envoyez">
-                </div>
-            </form>
-        </div>
 
         </c:forEach>
 
     </section>
+    <div class="left">
+        <c:forEach var="commentaires" items="${com}">
+            <div class="person_commnets">
+                <div class="profile"></div>
+                <div class="cv">
+                    <h6>Salma Bee</h6>
+                    <p>${commentaires.getCommentaire()}</p>
+                </div>
+            </div>
+        </c:forEach>
+
+    </div>
 
 
 </main>
