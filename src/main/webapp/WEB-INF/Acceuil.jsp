@@ -82,8 +82,8 @@
         </div>
     </section>
 
-    <form action="" method="POST" id="formSearch">
-        <input type="text" placeholder="Search by Title " name="search" id="search"/> <br>
+    <form action="search" method="POST" id="formSearch">
+        <input type="text" placeholder="Search by Title " name="title" id="search"/> <br>
         <button type="submit" id="btn-search"><i class="fa-brands fa-searchengin"></i></button>
     </form>
 
@@ -106,6 +106,9 @@
 
                     <img src="${filmS.getPicture()}" width="90%" />
                 </a>
+                <div class="comments1">
+                    <i class="fa-regular fa-bookmark" ></i>
+                </div>
 
             </div>
             <div class="Scontent">
@@ -134,6 +137,9 @@
                         <a href="/Megarama_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
                             <img class="card_disney" src="${recommendation.getPicture()}"/>
                         </a>
+                        <div class="comments1">
+                            <i class="fa-regular fa-bookmark" ></i>
+                        </div>
                     </div>
                     <h1>${recommendation.getTitre()}...</h1>
                     <div class="card-content">
@@ -202,7 +208,7 @@
 
     </div>
     <div class="wrapper" id="wrapper">
-        <button class="cancel" idf="cancel">X</button>
+        <button class="cancel" id="cancel">X</button>
 
 
 
@@ -237,6 +243,9 @@
                         <img class="card_disney" src="${Disneys.getPicture()}"/>
 
                     </a>
+                    <div class="comments1">
+                        <i class="fa-regular fa-bookmark" ></i>
+                    </div>
                 </div>
                 <h1>${Disneys.getTitre()}...</h1>
 

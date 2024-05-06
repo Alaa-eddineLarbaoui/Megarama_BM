@@ -768,10 +768,11 @@ body.light .menu ul li.hovered a ::after {
 
 
 .left{
-    width: 50%;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    height: 100px;
+
     overflow: auto;
     padding: 20px;
     text-align: center;
