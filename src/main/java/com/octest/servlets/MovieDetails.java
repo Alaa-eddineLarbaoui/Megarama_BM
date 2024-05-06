@@ -1,6 +1,7 @@
 package com.octest.servlets;
 
 import dao.FilmDAOImpl;
+import dao.HibernateDAOImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -22,7 +23,15 @@ public class MovieDetails extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        Integer filmId = Integer.valueOf(request.getParameter("Id"));
 
+
+        HibernateDAOImpl dao = new HibernateDAOImpl();
+        try {
+            request.setAttribute("com", dao.ReactionCommentaire(filmId));
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
         this.getServletContext().getRequestDispatcher("/WEB-INF/DetailMovie.jsp").forward(request, response);
     }
 

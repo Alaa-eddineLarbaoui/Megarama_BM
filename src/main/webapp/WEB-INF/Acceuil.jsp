@@ -101,7 +101,7 @@
 
 
 
-                <a href="/Megarama_Cinema_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
+                <a href="/Megarama_BM_war_exploded/detail?Id=${filmS.getFilm_id()}">
 
 
                     <img src="${filmS.getPicture()}" width="90%" />
@@ -131,7 +131,7 @@
             <c:forEach var="recommendation" items="${re}">
                 <div class="cardD">
                     <div>
-                        <a href="/demo_war_exploded/detail?Id=${recommendation.getFilm_id()}">
+                        <a href="/Megarama_BM_war_exploded/detail?Id=${recommendation.getFilm_id()}">
                             <img class="card_disney" src="${recommendation.getPicture()}"/>
                         </a>
                     </div>
@@ -163,7 +163,7 @@
 
 
                     <div class="img_comment">
-                        <a  href="/Megarama_Cinema_BM_war_exploded/detail?Id=${film.getFilm_id()}">
+                        <a  href="/Megarama_BM_war_exploded/detail?Id=${film.getFilm_id()}">
 
                         <img class="card_disney" src="${film.getPicture()}">
                         </a>
@@ -204,18 +204,7 @@
     <div class="wrapper" id="wrapper">
         <button class="cancel" idf="cancel">X</button>
 
-        <div class="left">
-            <c:forEach var="commentaires" items="${commentaires}">
-            <div class="person_commnets">
-                <div class="profile"></div>
-                <div class="cv">
-                    <h6>Salma Bee</h6>
-                    <p>${commentaires.getCommentaire()}</p>
-                </div>
-            </div>
-            </c:forEach>
 
-        </div>
 
         <div class="right">
             <form action="ReactionCommentaire" method="post">
@@ -243,7 +232,7 @@
                 <div>
 
 
-                    <a href="/demo_war_exploded/detail?Id=${Disneys.getFilm_id()}">
+                    <a href="/Megarama_BM_war_exploded/detail?Id=${Disneys.getFilm_id()}">
 
                         <img class="card_disney" src="${Disneys.getPicture()}"/>
 
