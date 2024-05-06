@@ -271,8 +271,8 @@ html {
 }
 
 .gradient {
-    background: -moz-linear-gradient(top, rgba(125, 185, 232, 0) 0, #151728 100%);
-    background: -webkit-linear-gradient(top, rgba(125, 185, 232, 0), #151728);
+    background: -moz-linear-gradient( rgba(125, 185, 232, 0) 0, #151728 100%);
+    background: -webkit-linear-gradient( rgba(125, 185, 232, 0), #151728);
     background: linear-gradient(180deg, rgba(125, 185, 232, 0) 0, #151728);
     bottom: 0;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007db9e8", endColorstr="#151728", GradientType=0);
@@ -765,6 +765,46 @@ body.light .menu ul li.hovered a ::after {
       color: gold;
     cursor: pointer;
   }
+
+
+.left{
+    width: 50%;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    overflow: auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.person_commnets{
+    margin: 8px auto;
+    width: 90%;
+    border-radius: 15px;
+    background-image: linear-gradient(to top, rgba(161, 140, 209, 0.54) 0%, rgba(251, 194, 235, 0.46) 100%);
+    backdrop-filter: blur(7px);
+    padding: 10px 20px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+}
+.profile{
+    height: 50px;
+    width: 50px;
+    border-radius: 200%;
+    background: white;
+    padding: 10px;
+    margin: 5px 14px;
+}
+.person_commnets > .cv{
+    width: 60%;
+    padding: 15px 10px;
+}
+.person_commnets > .cv > h6{
+    font-weight: 800;
+    color: white;
+}
 
 
 
